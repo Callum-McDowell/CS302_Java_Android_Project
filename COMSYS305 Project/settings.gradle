@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "COMSYS302 Project Application"
