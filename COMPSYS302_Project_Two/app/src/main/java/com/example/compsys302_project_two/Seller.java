@@ -35,6 +35,6 @@ public class Seller {
     }
 
     public String   getName() {return name;}
-    public Integer  getDistance() {return distance};
-    public Integer  getRating() {return rating};
+    public Integer  getDistance() {return distance;}
+    public Integer  getRating() {return rating;}
 }

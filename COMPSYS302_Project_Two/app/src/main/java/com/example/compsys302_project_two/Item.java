@@ -49,16 +49,6 @@ public class Item implements IItem {
         this.seller = seller;
     }
 
-    public Item()
-    {
-        // Placeholders for TESTING ONLY
-        this.title          = "Placeholder Listing";
-        this.featureImage   = ""
-        this.featureText = featureText;
-        this.price = price;
-        this.seller = seller;
-    }
-
     protected void generateMeta()
     {
         /* Populate with words (no spaces) from:
@@ -81,27 +71,30 @@ public class Item implements IItem {
     public float getPrice() {
         return price;
     }
+    public List<String> getMeta() {
+        return meta;
+    }
     public Seller getSeller() {
         return seller;
     }
     public String getSellerName() {
         try {
             return seller.getName();
-        } catch {
+        } catch (Exception e) {
             return "Null Seller";
         }
     }
     public Integer getSellerDistance() {
         try {
             return seller.getDistance();
-        } catch {
+        } catch (Exception e) {
             return 0;
         }
     }
     public Integer getSellerRating() {
         try {
             return seller.getRating();
-        } catch {
+        } catch (Exception e) {
             return 0;
         }
     }
@@ -110,9 +103,18 @@ public class Item implements IItem {
         return "Error: getContextText() called on Item, not ItemDetail";
     }
     // NOT IMPLEMENTED: Should be called on ItemDetail only.
-    List<String> getImages() {
+    public List<String> getImages() {
         List<String> images = new ArrayList<String>();
         return images;
     }
 
+    public Item()
+    {
+        // Placeholders for TESTING ONLY
+        this.title          = "Placeholder Listing";
+        this.featureImage   = "placeholder_featureimage";
+        this.featureText    = "Placeholder listing featureText";
+        this.price          = 0;
+        this.seller         = null;
+    }
 }

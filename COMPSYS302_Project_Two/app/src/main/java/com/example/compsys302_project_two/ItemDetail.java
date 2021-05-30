@@ -20,13 +20,13 @@
 
 package com.example.compsys302_project_two;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemDetail extends Item {
 
     String  contentText;
     List<String> images;
-
 
     public ItemDetail(String title, String featureImage, String featureText,
                       float price, Seller seller, String contextText, List<String> images)
@@ -41,7 +41,18 @@ public class ItemDetail extends Item {
         return contentText;
     }
     @Override
-    List<String> getImages() {
+    public List<String> getImages() {
         return images;
+    }
+
+    public ItemDetail()
+    {
+        // Placeholders for TESTING ONLY
+        super();
+        this.contentText    = "Placeholder listing contentText";
+        List<String> images = new ArrayList<String>();
+        images.add("placeholder_featureimage");
+        images.add("placeholder_featureimage");
+        this.images         = images;
     }
 }
