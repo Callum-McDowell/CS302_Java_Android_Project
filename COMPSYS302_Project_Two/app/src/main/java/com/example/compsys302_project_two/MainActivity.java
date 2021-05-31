@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // R.menu.* is a reference to a menu.xml file in the res/menu directory.
+        // This is for action bar actions
         getMenuInflater().inflate(R.menu.search_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }

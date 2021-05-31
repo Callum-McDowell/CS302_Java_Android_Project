@@ -14,4 +14,7 @@
     <color name="secondary_dark">#87c197</color>
     <color name="secondary">#b8f4c8</color>
     <color name="secondary_light">#ebfffb</color>
+
+    <!--Transparency with 70% Alpha Channel-->
+    <color name="secondary_light_70">#B3ebfffb</color>
 </resources>
