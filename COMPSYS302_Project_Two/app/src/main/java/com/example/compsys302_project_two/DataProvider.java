@@ -16,11 +16,10 @@ public class DataProvider {
     public static List<ItemDetail> generateItems()
     {
         List<ItemDetail> items = new ArrayList<ItemDetail>();
-        ItemDetail item;
 
         for (int i = 0; i < 10; i++)
         {
-            item = new ItemDetail();
+            ItemDetail item = new ItemDetail();
             items.add(item);
         }
 

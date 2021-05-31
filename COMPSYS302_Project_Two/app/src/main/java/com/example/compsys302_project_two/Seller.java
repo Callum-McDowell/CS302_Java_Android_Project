@@ -37,4 +37,12 @@ public class Seller {
     public String   getName() {return name;}
     public Integer  getDistance() {return distance;}
     public Integer  getRating() {return rating;}
+
+    public Seller()
+    {
+        // Placeholders for TESTING ONLY
+        name = "Seller McSeller";
+        distance = 2;
+        rating = 6;
+    }
 }

@@ -115,6 +115,6 @@ public class Item implements IItem {
         this.featureImage   = "placeholder_featureimage";
         this.featureText    = "Placeholder listing featureText";
         this.price          = 0;
-        this.seller         = null;
+        this.seller         = new Seller();
     }
 }
