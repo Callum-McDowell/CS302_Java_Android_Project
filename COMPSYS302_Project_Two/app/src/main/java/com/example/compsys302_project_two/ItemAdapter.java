@@ -65,15 +65,17 @@ public class ItemAdapter extends ArrayAdapter {
         TextView title = (TextView) currentViewItem.findViewById(R.id.title);
         title.setText(currentItem.getTitle());
 
-        // Set featureText
-        TextView featureText = (TextView) currentViewItem.findViewById(R.id.featureText);
-        featureText.setText(currentItem.getFeatureText());
+        // Set seller (name + rating)
+        TextView sellerName = (TextView) currentViewItem.findViewById(R.id.sellerName);
+        sellerName.setText(currentItem.getSellerName());
 
         // Set price (to 2 dp)
         TextView price = (TextView) currentViewItem.findViewById(R.id.price);
         price.setText("$ " + Float.toString(currentItem.getPrice()));
 
-        // Set seller (name + rating)
+        // Set featureText
+        TextView featureText = (TextView) currentViewItem.findViewById(R.id.featureText);
+        featureText.setText(currentItem.getFeatureText());
 
 
         // OnClick - Title
@@ -81,7 +83,11 @@ public class ItemAdapter extends ArrayAdapter {
             @Override
             public void onClick(View v) {
                 // When title is clicked...
-                //
+                // Transition to DetailActivity
+
+                //@TODO
+                String message = "DetailActivity";
+                Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,61 +97,15 @@ public class ItemAdapter extends ArrayAdapter {
             @Override
             public void onClick(View v) {
                 // When the item is clicked...
-                String message = "DetailActivity";
-                Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+                // Hide or unhide the featureText
+                if (featureText.getVisibility() == View.GONE) {
+                    featureText.setVisibility(View.VISIBLE);
+                } else {
+                    featureText.setVisibility(View.GONE);
+                }
             }
         });
 
         return currentViewItem;
     }
 }
-
-//public class ItemAdapter extends ArrayAdapter {
-//    int         mLayoutID;
-//    List<Item>  mItems;
-//    Context     mContext;
-//
-//    public ItemAdapter(@NonNull Context context, int resource, @NonNull List objects) {
-//        super(context, resource, objects);
-//        mLayoutID = resource;
-//        mItems = objects;
-//        mContext = context;
-//    }
-//
-//    @NonNull
-//    @Override
-//    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//        View currentViewItem = convertView;
-//
-//        // Existing view being reused (i.e. != null)? If not, inflate.
-//        if (currentViewItem == null) {
-//            currentViewItem = LayoutInflater.from(getContext()).inflate(mLayoutID, parent, false);
-//        }
-//
-//        Item currentItem = mItems.get(position);
-//
-//        // Set featureImage with img from res/raw
-//        ImageView featureImage = (ImageView) currentViewItem.findViewById(R.id.featureImage);
-//        int i = mContext.getResources().getIdentifier(
-//                currentItem.getFeatureImage(), "drawable", mContext.getPackageName());
-//        featureImage.setImageResource(i);
-//
-//        // Set title
-//        TextView title = (TextView) currentViewItem.findViewById(R.id.title);
-//        title.setText(currentItem.getTitle());
-//
-//        // Set featureText
-//        TextView featureText = (TextView) currentViewItem.findViewById(R.id.featureText);
-//        featureText.setText(currentItem.getFeatureText());
-//
-//        // Set price (to 2 dp)
-//        TextView price = (TextView) currentViewItem.findViewById(R.id.price);
-//        price.setText("$ " + Float.toString(currentItem.getPrice()));
-//
-//        // Set seller (name + rating)
-//
-//        //
-//
-//        return currentViewItem;
-//    }
-//}

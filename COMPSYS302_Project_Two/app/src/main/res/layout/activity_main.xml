@@ -20,7 +20,9 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="10dp"
+
+        android:divider="@android:color/transparent"
+        android:dividerHeight="26dp"
 
         android:padding="16dp"
     />
