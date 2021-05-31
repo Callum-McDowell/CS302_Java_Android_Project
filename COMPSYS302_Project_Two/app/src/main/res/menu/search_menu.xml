@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This file implements the actions items for the action bar-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,5 +12,6 @@
         android:icon="@drawable/baseline_search_24"
         app:iconTint="@color/secondary_light"
         app:showAsAction="always"
+        android:onClick="openDetails"
         />
 </menu>

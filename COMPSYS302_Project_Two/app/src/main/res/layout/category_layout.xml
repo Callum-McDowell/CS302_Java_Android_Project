@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This file is the template layout for the top picks viewing area,
+to be populated by an categoryAdaptor.
+Alternatively, this is fixed to a set of hard coded categories-->
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -2,9 +2,13 @@ package com.example.compsys302_project_two;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +27,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Placeholder for update icon
     public void updateTopPicks (View view) {
 
+    }
+
+    // Placeholder method for debugging details activity (access through actionbar icon)
+    public boolean openDetails (MenuItem item) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        startActivity(intent);
+        return true;
     }
 }

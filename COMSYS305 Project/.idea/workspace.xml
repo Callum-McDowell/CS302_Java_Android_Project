@@ -25,13 +25,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dec5d09b-1d66-4069-8bfb-4a311cc939fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/layout/top_pick_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/java/com/example/compsys302_project_two/DetailsActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/layout/activity_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/java/com/example/compsys302_project_two/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/java/com/example/compsys302_project_two/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/layout/category_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/layout/category_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/menu/bot_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPSYS302_Project_Two/app/src/main/res/menu/bot_nav_menu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
