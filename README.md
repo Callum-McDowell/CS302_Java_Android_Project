@@ -16,4 +16,7 @@ Android Studio 4.1.3
 ## Versioning
 [Semantic Versioning](https://semver.org/)
 
-0.1.0 - Git repo initialization.
+0.0.0 - Git repo initialization.
+0.1.0 - First Milstone, merged GUI (Hao) and model+adaptor (Callum) together.
+0.2.0 - Second Milstone, all views connected to respective adaptor.
+0.2.1 - Restored a lost commit on item_layout.
