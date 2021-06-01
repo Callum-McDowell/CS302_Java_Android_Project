@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
 
 
         // Populate top picks
-        ArrayList<TopPick> topPicksList = DataProvider.getTopPicks();
+        ArrayList<Item> topPicksList = DataProvider.getTopPicks();
 
         TopPickAdaptor topPicksAdaptor = new TopPickAdaptor(
                 this, R.layout.top_pick_layout, topPicksList);

@@ -16,12 +16,12 @@ import java.util.List;
 
 public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHolder>{
     private int mLayoutID;
-    private List<TopPick> mData;
+    private List<Item> mData;
     private Context mContext;
 
     private LayoutInflater mInflater;
 
-    public TopPickAdaptor(Context context, int resource, ArrayList<TopPick> data) {
+    public TopPickAdaptor(Context context, int resource, ArrayList<Item> data) {
         this.mData = data;
         this.mLayoutID = resource;
         this.mContext = context;
@@ -58,7 +58,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        TopPick thisPick = mData.get(position);
+        Item thisPick = mData.get(position);
 
         int image_id = mContext.getResources().getIdentifier(
                 thisPick.getFeatureImage(), "drawable", mContext.getPackageName());
