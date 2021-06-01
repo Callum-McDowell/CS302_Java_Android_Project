@@ -3,13 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    style="@style/CardViewStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:elevation="8dp"
-    android:padding="16dp"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
     >
 
     <!-- @HAO: This stuff should be modularised into styles! Have left it as is while iterating. -->
@@ -45,6 +41,7 @@
                 android:paddingHorizontal="6dp"
                 >
                 <TextView
+                    style="@style/TextAppearance.MyApp.ItemTitle"
                     android:id="@+id/title"
 
                     android:layout_width="match_parent"
@@ -52,10 +49,6 @@
 
                     android:padding="8dp"
                     android:gravity="center|start"
-                    android:textSize="20sp"
-                    android:textColor="#333333"
-                    android:fontFamily="sans-serif-black"
-                    android:textStyle="bold"
 
                     android:text="Listing Title Placeholder"
                     />
@@ -65,21 +58,23 @@
 
                     <TextView
                         android:id="@+id/sellerName"
+                        style="@style/TextAppearance.MyApp.LightBody1"
 
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
 
-                        android:padding="2dp"
                         android:gravity="top|start"
-                        android:textSize="14sp"
-                        android:textColor="#666666"
-                        android:fontFamily="sans-serif-light"
-                        android:textStyle="normal"
-
+                        android:paddingLeft="8dp"
+                        android:paddingRight="4dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="8dp"
                         android:text="Jane Doe"
-                        />
+
+                        app:autoSizeTextType="uniform" />
+
                     <TextView
+                        style="@style/TextAppearance.MyApp.ItemTitle"
                         android:id="@+id/price"
 
                         android:layout_width="0dp"
@@ -88,37 +83,29 @@
 
                         android:padding="2dp"
                         android:gravity="center|center"
-                        android:textSize="19sp"
-                        android:textColor="#333333"
-                        android:fontFamily="sans-serif-black"
-                        android:textStyle="normal"
 
                         android:text="$0.0"
                         />
-
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
         <TextView
+            style="@style/TextAppearance.MyApp.LightBody1"
             android:id="@+id/featureText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginHorizontal="6dp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="6dp"
             android:gravity="top|start"
-            android:textSize="14sp"
-            android:textColor="#666666"
-            android:fontFamily="sans-serif-light"
-            android:textStyle="normal"
 
-            android:background="#EFEFEF"
+            android:background="@color/secondary_light"
             android:visibility="gone"
 
             android:text="Feature text lorem ipsum."/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
+
