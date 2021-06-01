@@ -6,11 +6,14 @@ import java.util.List;
 public class DataProvider {
 
     protected static List<ItemDetail> items = generateItems();
-//    protected static List<Category> categories = generateCategories();
+    protected static List<Category> categories = generateCategories();
 
-    public static List<ItemDetail> getItems()
-    {
+    public static List<ItemDetail> getItems() {
         return items;
+    }
+    public static List<Category> getCategories()
+    {
+        return categories;
     }
 
     public static List<ItemDetail> generateItems()
@@ -26,14 +29,17 @@ public class DataProvider {
         return items;
     }
 
-//    public static List<Category> getCategories()
-//    {
-//        return categories;
-//    }
+    public static List<Category> generateCategories()
+    {
+        List<Category> categories = new ArrayList<Category>();
 
-//    public static void generateCategories()
-//    {
-//
-//    }
+        for (int i = 0; i < 10; i++)
+        {
+            Category category = new Category();
+            categories.add(category);
+        }
+
+        return categories;
+    }
 
 }
