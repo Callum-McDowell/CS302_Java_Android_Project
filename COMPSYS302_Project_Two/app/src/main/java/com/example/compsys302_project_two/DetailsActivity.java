@@ -1,10 +1,17 @@
 package com.example.compsys302_project_two;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +35,9 @@ public class DetailsActivity extends AppCompatActivity {
         TextView    contentText;
         ImageView   images;
 
+        ViewPager   viewPager;
+        ImagePagerAdapter imagePagerAdapter;
+
         public ViewHolder() {
             title = (TextView) findViewById(R.id.title);
             //featureImage
@@ -40,6 +50,8 @@ public class DetailsActivity extends AppCompatActivity {
 
             contentText = (TextView) findViewById(R.id.contentText);
             //images
+
+            viewPager = (ViewPager) findViewById(R.id.viewPager);
         }
     }
 
@@ -53,12 +65,17 @@ public class DetailsActivity extends AppCompatActivity {
 
         vh = new ViewHolder();
 
+        // Load Item
         Intent startingIntent = getIntent();
         Item item = (Item) startingIntent.getParcelableExtra("item");
         this.item = item;
 
-
         refreshViews();
+
+        // Initialise image ViewPager
+        // https://www.geeksforgeeks.org/image-slider-in-android-using-viewpager/
+        vh.imagePagerAdapter = new ImagePagerAdapter(this, item.getImages());
+        vh.viewPager.setAdapter(vh.imagePagerAdapter);
     }
 
     private void refreshViews() {
@@ -75,5 +92,4 @@ public class DetailsActivity extends AppCompatActivity {
         vh.contentText.setText(item.getContentText());
         //vh.images
     }
-
 }
