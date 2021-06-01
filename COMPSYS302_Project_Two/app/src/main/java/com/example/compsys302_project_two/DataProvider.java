@@ -7,6 +7,7 @@ public class DataProvider {
 
     protected static List<ItemDetail> items = generateItems();
     protected static List<Category> categories = generateCategories();
+    protected static ArrayList<TopPick> topPicks = generateTopPicks();
 
     public static List<ItemDetail> getItems() {
         return items;
@@ -15,6 +16,7 @@ public class DataProvider {
     {
         return categories;
     }
+    public static ArrayList<TopPick> getTopPicks() { return topPicks; }
 
     public static List<ItemDetail> generateItems()
     {
@@ -42,4 +44,16 @@ public class DataProvider {
         return categories;
     }
 
+    public static ArrayList<TopPick> generateTopPicks()
+    {
+        ArrayList<TopPick> topPicks = new ArrayList<TopPick>();
+
+        for (int i = 0; i < 10; i++)
+        {
+            TopPick topPick = new TopPick();
+            topPicks.add(topPick);
+        }
+
+        return topPicks;
+    }
 }

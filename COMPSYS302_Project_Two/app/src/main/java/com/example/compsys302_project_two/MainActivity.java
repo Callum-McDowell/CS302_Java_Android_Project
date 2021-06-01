@@ -1,6 +1,8 @@
 package com.example.compsys302_project_two;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
 import android.app.Notification;
@@ -37,10 +39,23 @@ public class MainActivity extends BaseActivity {
 //        list_id.setAdapter(itemsAdapter);
         List<Category> list = DataProvider.getCategories();
 
-        CategoryAdapter categoryAdapter = new CategoryAdapter(this,R.layout.category_layout, list);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(
+                this, R.layout.category_layout, list);
 
         ListView list_id = (ListView) findViewById(R.id.category_list_view);
         list_id.setAdapter(categoryAdapter);
+
+        ArrayList<TopPick> topPicksList = DataProvider.getTopPicks();
+
+        TopPickAdaptor topPicksAdaptor = new TopPickAdaptor(
+                this, R.layout.top_pick_layout, topPicksList);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                this, LinearLayoutManager.HORIZONTAL, false);
+
+        RecyclerView topPicksList_id = (RecyclerView) findViewById(R.id.top_picks_view);
+        topPicksList_id.setLayoutManager(layoutManager);
+        topPicksList_id.setAdapter(topPicksAdaptor);
     }
 
         // Placeholder for update icon
