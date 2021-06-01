@@ -7,7 +7,7 @@
     Summary
 
         ItemAdapter is an adapter for RecyclerView for showing item listings in a
-        list/card format. The card appearance is as described in list_item.xml.
+        list/card format. The card appearance is as described in item_layout.xml.
 */
 
 package com.example.compsys302_project_two;
@@ -55,7 +55,7 @@ public class ItemAdapter extends ArrayAdapter {
 
         Item currentItem = mItems.get(position);
 
-        // Set featureImage with img from res/raw
+        // Set featureImage with img from res\raw
         ImageView featureImage = (ImageView) currentViewItem.findViewById(R.id.featureImage);
         int i = mContext.getResources().getIdentifier(
                 currentItem.getFeatureImage(), "drawable", mContext.getPackageName());
