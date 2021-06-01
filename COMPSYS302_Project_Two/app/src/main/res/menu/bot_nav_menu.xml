@@ -2,17 +2,17 @@
 <!--This file implements the items to be present on the bottom navigation bar.-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeIcon"
+        android:id="@+id/bot_nav_home"
         android:title="Home"
         android:icon="@drawable/baseline_home_24"
         />
     <item
-        android:id="@+id/searchIcon"
+        android:id="@+id/bot_nav_search"
         android:title="Search"
         android:icon="@drawable/baseline_search_24"
         />
     <item
-        android:id="@+id/aboutsIcon"
+        android:id="@+id/bot_nav_abouts"
         android:title="Abouts"
         android:icon="@drawable/baseline_info_24"
         />

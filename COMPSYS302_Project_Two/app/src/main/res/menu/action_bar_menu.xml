@@ -12,6 +12,5 @@
         android:icon="@drawable/baseline_search_24"
         app:iconTint="@color/secondary_light"
         app:showAsAction="always"
-        android:onClick="openDetails"
         />
 </menu>
