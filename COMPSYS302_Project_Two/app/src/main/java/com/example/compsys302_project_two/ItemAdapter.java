@@ -80,10 +80,10 @@ public class ItemAdapter extends ArrayAdapter {
 
 
         // OnClick - Title
-        title.setOnClickListener(new View.OnClickListener() {
+        featureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // When title is clicked...
+                // When featureImage is clicked...
                 // Transition to DetailActivity
 
                 //@TODO
