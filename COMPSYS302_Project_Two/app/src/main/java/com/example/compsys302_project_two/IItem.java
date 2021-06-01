@@ -22,6 +22,8 @@ import java.util.List;
 
 public interface IItem {
 
+    public CategoryType getCategoryType();
+
     public String   getTitle();
     public String   getFeatureImage();
     public String   getFeatureText();

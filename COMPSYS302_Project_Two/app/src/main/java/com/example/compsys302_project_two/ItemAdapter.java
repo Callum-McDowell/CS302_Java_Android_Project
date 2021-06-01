@@ -13,6 +13,7 @@
 package com.example.compsys302_project_two;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -88,6 +89,11 @@ public class ItemAdapter extends ArrayAdapter {
                 //@TODO
                 String message = "DetailActivity";
                 Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+
+                Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
+                detailsActivity.putExtra("item", currentItem);
+                mContext.startActivity(detailsActivity);
+                // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
             }
         });
 
