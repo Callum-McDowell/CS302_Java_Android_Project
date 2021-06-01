@@ -59,12 +59,14 @@ public class ImagePagerAdapter extends PagerAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent galleryActivity = new Intent(mContext.getApplicationContext(), GalleryActivity.class);
-                galleryActivity.putExtra("position", position);
-                ArrayList<String> images = new ArrayList<String>(mImages);
-                galleryActivity.putStringArrayListExtra("images", images);
+                if (mContext.getClass() != GalleryActivity.class) {
+                    Intent galleryActivity = new Intent(mContext.getApplicationContext(), GalleryActivity.class);
+                    galleryActivity.putExtra("position", position);
+                    ArrayList<String> images = new ArrayList<String>(mImages);
+                    galleryActivity.putStringArrayListExtra("images", images);
 
-                mContext.startActivity(galleryActivity);
+                    mContext.startActivity(galleryActivity);
+                }
             }
         });
 
