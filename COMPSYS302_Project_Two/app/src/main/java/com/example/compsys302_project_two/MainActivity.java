@@ -27,36 +27,34 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
 
-        // TEMP for TESTING --->
-        List<Item> list = DataProvider.getItems();
-//        List<Category> list = DataProvider.getCategories();
+        // Populate top picks
+        ArrayList<TopPick> topPicksList = DataProvider.getTopPicks();
 
-        // CATEGORY ADAPTER
-//        CategoryAdapter categoryAdapter = new CategoryAdapter(
-//                this, R.layout.category_layout, list);
+        TopPickAdaptor topPicksAdaptor = new TopPickAdaptor(
+                this, R.layout.top_pick_layout, topPicksList);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                this, LinearLayoutManager.HORIZONTAL, false);
+
+        RecyclerView topPicksList_id = (RecyclerView) findViewById(R.id.top_picks_view);
+        topPicksList_id.setLayoutManager(layoutManager);
+        topPicksList_id.setAdapter(topPicksAdaptor);
+
+
+        // Populate categories
+        List<Category> list = DataProvider.getCategories();
+
+        CategoryAdapter categoryAdapter = new CategoryAdapter(
+                this, R.layout.category_layout, list);
+        ListView list_id = (ListView) findViewById(R.id.categoriesList);
+        list_id.setAdapter(categoryAdapter);
+
+//        // ITEM ADAPTER
+//        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
 //
 //        ListView list_id = (ListView) findViewById(R.id.category_list_view);
-//        list_id.setAdapter(categoryAdapter);
-
-
-        // ITEM ADAPTER
-        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
-
-        ListView list_id = (ListView) findViewById(R.id.category_list_view);
-        list_id.setAdapter(itemsAdapter);
-        // <---
-
-//        ArrayList<TopPick> topPicksList = DataProvider.getTopPicks();
-//
-//        TopPickAdaptor topPicksAdaptor = new TopPickAdaptor(
-//                this, R.layout.top_pick_layout, topPicksList);
-//
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(
-//                this, LinearLayoutManager.HORIZONTAL, false);
-//
-//        RecyclerView topPicksList_id = (RecyclerView) findViewById(R.id.top_picks_view);
-//        topPicksList_id.setLayoutManager(layoutManager);
-//        topPicksList_id.setAdapter(topPicksAdaptor);
+//        list_id.setAdapter(itemsAdapter);
+//        // <---
     }
 
         // Placeholder for update icon

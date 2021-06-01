@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemActivity">
+    tools:context=".ItemListActivity"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="0dp">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/ListViewStyle"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
