@@ -27,26 +27,48 @@
 
 package com.example.compsys302_project_two;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Item implements IItem {
+public class Item implements Parcelable, IItem {
+
+    CategoryType type;
 
     String  title;
     String  featureImage;
     String  featureText;
     float   price;
+
+    // WARNING: Reference to seller is lost when serialised, thus contents are cached locally.
+    //          The moment Item is serialised and passed between activities its un-parceled
+    //          instance has seller == null.
     Seller  seller;
+    String  sellerName;
+    Integer sellerDistance;
+    Integer sellerRating;
+
+    String  contentText;
+    List<String> images;
 
     List<String> meta;
 
-    public Item(String title, String featureImage, String featureText, float price, Seller seller)
+    public Item(CategoryType type, String title, String featureImage, String featureText, float price, Seller seller, String contentText, List<String> images)
     {
+        this.type = type;
+
         this.title = title;
         this.featureImage = featureImage;
         this.featureText = featureText;
         this.price = price;
+
         this.seller = seller;
+        refreshSellerData();
+
+        this.contentText = contentText;
+        this.images = images;
     }
 
     protected void generateMeta()
@@ -58,63 +80,145 @@ public class Item implements IItem {
          */
     }
 
+    public void refreshSellerData() {
+        try {
+            this.sellerName = seller.getName();
+            this.sellerDistance = seller.getDistance();
+            this.sellerRating = seller.getRating();
+        } catch (Exception e) {
+            ;
+        }
+    }
+
     /* IItem Interface Calls */
+    @Override
+    public CategoryType getCategoryType() {
+        return type;
+    }
+    @Override
     public String getTitle() {
         return title;
     }
+    @Override
     public String getFeatureImage() {
         return featureImage;
     }
+    @Override
     public String getFeatureText() {
         return featureText;
     }
+    @Override
     public float getPrice() {
         return price;
     }
+    @Override
     public List<String> getMeta() {
         return meta;
     }
+    @Override
     public Seller getSeller() {
         return seller;
     }
+    @Override
     public String getSellerName() {
-        try {
-            return seller.getName();
-        } catch (Exception e) {
-            return "Null Seller";
-        }
+        return sellerName;
     }
+    @Override
     public Integer getSellerDistance() {
-        try {
-            return seller.getDistance();
-        } catch (Exception e) {
-            return 0;
-        }
+        return sellerDistance;
     }
+    @Override
     public Integer getSellerRating() {
-        try {
-            return seller.getRating();
-        } catch (Exception e) {
-            return 0;
-        }
+        return sellerRating;
     }
-    // NOT IMPLEMENTED: Should be called on ItemDetail only.
+    @Override
     public String getContentText() {
-        return "Error: getContextText() called on Item, not ItemDetail";
+        return contentText;
     }
-    // NOT IMPLEMENTED: Should be called on ItemDetail only.
+    @Override
     public List<String> getImages() {
-        List<String> images = new ArrayList<String>();
         return images;
+    }
+
+
+    //*** PARCELABLE ***//
+    //
+    //    For passing objects via Intents with high performance serialisation.
+    //    https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
+    //    https://stackoverflow.com/questions/7181526/how-can-i-make-my-custom-objects-parcelable
+    //    https://developer.android.com/reference/android/os/Parcel
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(getTitle());
+        dest.writeString(getFeatureImage());
+        dest.writeString(getFeatureText());
+        dest.writeFloat(getPrice());
+
+        dest.writeString(getSellerName());
+        dest.writeInt(getSellerDistance());
+        dest.writeInt(getSellerRating());
+
+        dest.writeString(getContentText());
+        dest.writeStringList(getImages());
+    }
+
+    public static final Parcelable.Creator<Item> CREATOR
+            = new Parcelable.Creator<Item>() {
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
+
+    private Item(Parcel in) {
+        // Constructor for parcelable
+        // Reads data as FIFO
+        title           = in.readString();
+        featureImage    = in.readString();
+        featureText     = in.readString();
+        price           = in.readFloat();
+
+        sellerName      = in.readString();
+        sellerDistance  = in.readInt();
+        sellerRating    = in.readInt();
+
+        contentText     = in.readString();
+
+        if (images == null) {
+            // Must create list instance before trying to store to it
+            // https://idlesun.blogspot.com/2012/12/android-parcelable-example-2-subobject.html
+            images = new ArrayList<String>();
+        }
+        in.readStringList(images);
+
+        // category type, seller, meta left empty
     }
 
     public Item()
     {
         // Placeholders for TESTING ONLY
+        this.type = CategoryType.FRUIT;
+
         this.title          = "Placeholder Listing";
         this.featureImage   = "placeholder_featureimage";
         this.featureText    = "Placeholder listing featureText";
+
         this.price          = 0;
         this.seller         = new Seller();
+        refreshSellerData();
+
+        this.contentText    = "Placeholder listing contentText";
+        List<String> images = new ArrayList<String>();
+        images.add("placeholder_featureimage");
+        images.add("placeholder_featureimage");
+        this.images         = images;
     }
 }

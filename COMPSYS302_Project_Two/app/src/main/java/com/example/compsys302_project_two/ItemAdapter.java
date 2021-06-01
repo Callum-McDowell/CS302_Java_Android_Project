@@ -7,12 +7,13 @@
     Summary
 
         ItemAdapter is an adapter for RecyclerView for showing item listings in a
-        list/card format. The card appearance is as described in list_item.xml.
+        list/card format. The card appearance is as described in item_layout.xml.
 */
 
 package com.example.compsys302_project_two;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -55,7 +56,7 @@ public class ItemAdapter extends ArrayAdapter {
 
         Item currentItem = mItems.get(position);
 
-        // Set featureImage with img from res/raw
+        // Set featureImage with img from res\raw
         ImageView featureImage = (ImageView) currentViewItem.findViewById(R.id.featureImage);
         int i = mContext.getResources().getIdentifier(
                 currentItem.getFeatureImage(), "drawable", mContext.getPackageName());
@@ -88,6 +89,11 @@ public class ItemAdapter extends ArrayAdapter {
                 //@TODO
                 String message = "DetailActivity";
                 Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+
+                Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
+                detailsActivity.putExtra("item", currentItem);
+                mContext.startActivity(detailsActivity);
+                // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
             }
         });
 

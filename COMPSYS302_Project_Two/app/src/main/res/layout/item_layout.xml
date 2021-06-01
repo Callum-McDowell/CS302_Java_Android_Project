@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:elevation="8dp"
+    android:padding="16dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    >
+
+    <!-- @HAO: This stuff should be modularised into styles! Have left it as is while iterating. -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Wrap content to expand to show all the feature text. -->
+
+        <LinearLayout
+            android:id="@+id/root_layout"
+
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal">
+            <!-- Limit size here to set default layout width. -->
+            <ImageView
+                android:id="@+id/featureImage"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:scaleType="centerCrop"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="vertical"
+
+                android:paddingHorizontal="6dp"
+                >
+                <TextView
+                    android:id="@+id/title"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+
+                    android:padding="8dp"
+                    android:gravity="center|start"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="bold"
+
+                    android:text="Listing Title Placeholder"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/sellerName"
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+
+                        android:padding="2dp"
+                        android:gravity="top|start"
+                        android:textSize="14sp"
+                        android:textColor="#666666"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="normal"
+
+                        android:text="Jane Doe"
+                        />
+                    <TextView
+                        android:id="@+id/price"
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:padding="2dp"
+                        android:gravity="center|center"
+                        android:textSize="19sp"
+                        android:textColor="#333333"
+                        android:fontFamily="sans-serif-black"
+                        android:textStyle="normal"
+
+                        android:text="$0.0"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/featureText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginHorizontal="6dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:gravity="top|start"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="normal"
+
+            android:background="#EFEFEF"
+            android:visibility="gone"
+
+            android:text="Feature text lorem ipsum."/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

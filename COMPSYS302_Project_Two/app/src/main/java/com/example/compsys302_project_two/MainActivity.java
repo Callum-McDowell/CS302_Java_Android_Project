@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,15 +23,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // TEMP for TESTING
-        List<ItemDetail> listDetails = DataProvider.getItems();
-        List<Item> list = new ArrayList<Item>(listDetails);
+        // TEMP for TESTING --->
+        List<Item> list = DataProvider.getItems();
 
-        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.list_item, list);
+        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
 
         ListView list_id = (ListView) findViewById(R.id.category_list_view);
         list_id.setAdapter(itemsAdapter);
-        
+//        List<Category> list = DataProvider.getCategories();
+//
+//        CategoryAdapter categoryAdapter = new CategoryAdapter(this,R.layout.category_layout, list);
+//
+//        ListView list_id = (ListView) findViewById(R.id.category_list_view);
+//        list_id.setAdapter(categoryAdapter);
+        // <---
+
+        // Bottom Navigation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bot_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
