@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COMPSYS302_Project_Two">
         <activity android:name=".ItemActivity"></activity>
+        <activity android:name=".ItemView"></activity>
+        <activity android:name=".GalleryActivity"></activity>
         <activity android:name=".SearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
