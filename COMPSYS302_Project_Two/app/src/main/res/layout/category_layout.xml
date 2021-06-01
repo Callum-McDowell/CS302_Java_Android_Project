@@ -10,10 +10,9 @@ Alternatively, this is fixed to a set of hard coded categories-->
 
     android:layout_width="match_parent"
     android:layout_height="96dp"
-    android:elevation="8dp"
-    android:padding="16dp"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
+
+    style="@style/CardViewStyle"
     >
 
     <ImageView
@@ -31,7 +30,7 @@ Alternatively, this is fixed to a set of hard coded categories-->
 
         android:gravity="center"
         android:textSize="36sp"
-        android:textColor="#FFDDDD"
+        android:textColor="#FFFDFD"
         android:fontFamily="sans-serif-black"
         android:textStyle="bold"
 
