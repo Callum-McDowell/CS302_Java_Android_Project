@@ -31,11 +31,11 @@ public class MainActivity extends BaseActivity {
         List<Item> list = DataProvider.getItems();
 
 
-        CategoryAdapter categoryAdapter = new CategoryAdapter(
-                this, R.layout.category_layout, list);
-
-        ListView list_id = (ListView) findViewById(R.id.category_list_view);
-        list_id.setAdapter(categoryAdapter);
+//        CategoryAdapter categoryAdapter = new CategoryAdapter(
+//                this, R.layout.category_layout, list);
+//
+//        ListView list_id = (ListView) findViewById(R.id.category_list_view);
+//        list_id.setAdapter(categoryAdapter);
 
         //ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
 
