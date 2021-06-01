@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
+        android:layout_marginBottom="?actionBarSize"
         android:orientation="vertical"
         >
 
@@ -90,9 +91,12 @@
         </androidx.cardview.widget.CardView>
 
         <ListView
+            style="@style/ListViewStyle"
             android:id="@+id/category_list_view"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
