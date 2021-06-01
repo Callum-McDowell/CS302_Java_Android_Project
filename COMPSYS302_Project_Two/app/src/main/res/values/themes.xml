@@ -46,6 +46,13 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="TextAppearance.MyApp.WhiteDisplay" parent="@style/TextAppearance.AppCompat.Display1">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
+
     <!--Custom icon style-->
     <style name="ActionIcon" parent="@style/Widget.AppCompat.ActionButton">
         <item name="android:tint">@color/primary</item>
