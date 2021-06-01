@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginBottom="?actionBarSize"
         >
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -36,21 +35,4 @@
             android:layout_height="match_parent"
             />
     </LinearLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bot_nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bot_nav_menu"
-
-        android:background="@color/primary"
-        app:itemIconTint="@drawable/nav_bar_colour"
-        app:itemTextColor="@drawable/nav_bar_colour"
-        />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
