@@ -16,4 +16,4 @@ Android Studio 4.1.3
 ## Versioning
 [Semantic Versioning](https://semver.org/)
 
-0.0.0 - Git repo initialization.
+0.1.0 - Git repo initialization.

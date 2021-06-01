@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.list_item, list);
 
-        ListView list_id = (ListView) findViewById(R.id.list);
+        ListView list_id = (ListView) findViewById(R.id.category_list_view);
         list_id.setAdapter(itemsAdapter);
         
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bot_nav_view);
