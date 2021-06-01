@@ -38,7 +38,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    //Custom: Material design library and cardview
+    //Custom: Material design library, cardview and recyclerview
     implementation 'com.google.android.material:material:1.2.0'
     implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.0"
+
 }

@@ -21,18 +21,15 @@ Alternatively, this is fixed to a set of hard coded categories-->
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
+        android:foreground="@drawable/gradient_category"
         />
     <TextView
+        style="@style/TextAppearance.MyApp.WhiteDisplay"
         android:id="@+id/title"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:gravity="center"
-        android:textSize="36sp"
-        android:textColor="#FFFDFD"
-        android:fontFamily="sans-serif-black"
-        android:textStyle="bold"
 
         android:background="@android:color/transparent"
         />

@@ -20,7 +20,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 import java.util.Locale;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends BaseActivity {
 
     class ViewHolder {
         TextView    title;

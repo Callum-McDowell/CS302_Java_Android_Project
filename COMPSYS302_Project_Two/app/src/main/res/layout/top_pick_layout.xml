@@ -18,13 +18,14 @@ to be populated by an topPicksAdaptor-->
         android:layout_height="172dp"
         >
         <ImageView
-            android:id="@+id/category_image"
+            android:id="@+id/top_pick_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             />
         <TextView
             style="@style/TextAppearance.AppCompat.Body1"
-            android:id="@+id/category_name"
+            android:id="@+id/top_pick_name"
             android:text="Item Name"
             android:layout_width="match_parent"
             android:layout_height="28dp"
