@@ -61,8 +61,8 @@ public class CategoryAdapter extends ArrayAdapter {
 
                 //@TODO
                 // Use intent to apply category filter?
-                String message = "ListActivity";
-                Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+                //String message = "ListActivity";
+                //Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
 
                 Intent itemListActivity = new Intent(mContext.getApplicationContext(), ItemListActivity.class);
                 itemListActivity.putExtra("type", currentCategory.getCategoryType());
