@@ -1,14 +1,17 @@
 package com.example.compsys302_project_two;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,12 +19,12 @@ import java.util.List;
 
 public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHolder>{
     private int mLayoutID;
-    private List<TopPick> mData;
+    private List<Item> mData;
     private Context mContext;
 
     private LayoutInflater mInflater;
 
-    public TopPickAdaptor(Context context, int resource, ArrayList<TopPick> data) {
+    public TopPickAdaptor(Context context, int resource, ArrayList<Item> data) {
         this.mData = data;
         this.mLayoutID = resource;
         this.mContext = context;
@@ -32,6 +35,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView topPickImage;
         public TextView topPickName;
+        public CardView cardView;
 
         public ViewHolder(View view) {
             super(view);
@@ -39,6 +43,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
             // Initialize the view objects
             topPickImage = view.findViewById(R.id.top_pick_image);
             topPickName = view.findViewById(R.id.top_pick_name);
+            cardView = view.findViewById(R.id.categoryCard);
         }
 
         @Override
@@ -58,13 +63,27 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        TopPick thisPick = mData.get(position);
+        Item thisPick = mData.get(position);
 
         int image_id = mContext.getResources().getIdentifier(
                 thisPick.getFeatureImage(), "drawable", mContext.getPackageName());
 
         holder.topPickName.setText(thisPick.getTitle());
         holder.topPickImage.setImageResource(image_id);
+
+        // OnClick - Title
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // When featureImage is clicked...
+                // Transition to DetailActivity
+
+                Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
+                detailsActivity.putExtra("item", thisPick);
+                mContext.startActivity(detailsActivity);
+                // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
+            }
+        });
     }
 
     // Total number of items

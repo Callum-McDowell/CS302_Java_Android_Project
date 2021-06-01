@@ -86,9 +86,8 @@ public class ItemAdapter extends ArrayAdapter {
                 // When featureImage is clicked...
                 // Transition to DetailActivity
 
-                //@TODO
-                String message = "DetailActivity";
-                Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+                //String message = "DetailActivity";
+                //Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", currentItem);
