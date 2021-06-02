@@ -19,20 +19,28 @@
             app:cardCornerRadius="8dp"
             >
             <SearchView
-                android:id="@+id/search_bar_view"
+                android:id="@+id/searchBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_gravity="center_horizontal"
                 android:inputType="text"
                 android:iconifiedByDefault="false"
-                android:queryHint="Enter Searchable Terms"
+                android:queryHint="Search here..."
                 />
         </com.google.android.material.card.MaterialCardView>
         <ListView
-            android:id="@+id/search_results_list"
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/errorText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:gravity="center_horizontal|center_vertical"
+            android:text="0 search results"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:visibility="gone"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

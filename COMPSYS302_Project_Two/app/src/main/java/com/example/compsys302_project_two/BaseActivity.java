@@ -37,12 +37,9 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected boolean startSearchActivity (MenuItem item) {
-        if (this instanceof MainActivity) {
-            Intent intent = new Intent(getBaseContext(), SearchActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        return false;
+        Intent intent = new Intent(getBaseContext(), SearchActivity.class);
+        startActivity(intent);
+        return true;
     }
 
     protected boolean startMainActivity (MenuItem item) {

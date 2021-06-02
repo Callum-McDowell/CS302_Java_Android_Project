@@ -44,6 +44,13 @@ public class ItemAdapter extends ArrayAdapter {
         mContext = context;
     }
 
+    public void updateObjects(@NonNull List<Item> objects) {
+        mItems.clear();
+        mItems.addAll(objects);
+        this.notifyDataSetChanged();
+    }
+
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

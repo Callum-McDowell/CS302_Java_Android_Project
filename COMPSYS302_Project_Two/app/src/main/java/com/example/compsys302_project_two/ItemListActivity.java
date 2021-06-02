@@ -41,6 +41,7 @@ public class ItemListActivity extends BaseActivity {
         types.add(type);
         list = Search.findByCategory(list, types);
 
+        // Create and attach adapter, populated from list
         ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
 
         ListView listView = (ListView) findViewById(R.id.listView);
