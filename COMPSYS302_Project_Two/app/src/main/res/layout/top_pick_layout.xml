@@ -28,7 +28,7 @@ to be populated by an topPicksAdaptor-->
             android:id="@+id/top_pick_name"
             android:text="Item Name"
             android:layout_width="match_parent"
-            android:layout_height="28dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:padding="4dp"

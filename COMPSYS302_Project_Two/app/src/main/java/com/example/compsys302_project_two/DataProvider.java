@@ -137,6 +137,45 @@ public class DataProvider {
     {
         List<Category> categories = new ArrayList<Category>();
 
+        {
+            Category category;
+
+            CategoryType type;
+            String  title;
+            String  featureImage;
+            String  featureText;
+
+
+            // Category 1
+            type = CategoryType.FRUIT;
+            title = "Fruit";
+            featureImage= "img_berries";
+            featureText = "Fresh fruit.";
+
+            category = new Category(type, title, featureImage, featureText);
+            categories.add(category);
+
+            // Category 2
+            // Category 1
+            type = CategoryType.VEGETABLES;
+            title = "Vegetables";
+            featureImage= "img_vegetablesrustic";
+            featureText = "Fresh vegetables.";
+
+            category = new Category(type, title, featureImage, featureText);
+            categories.add(category);
+
+            // Category 3
+            // Category 1
+            type = CategoryType.HERBS;
+            title = "Herbs";
+            featureImage= "img_herbs";
+            featureText = "Tasty herbs.";
+
+            category = new Category(type, title, featureImage, featureText);
+            categories.add(category);
+        }
+
 
         for (int i = 0; i < 10; i++)
         {
