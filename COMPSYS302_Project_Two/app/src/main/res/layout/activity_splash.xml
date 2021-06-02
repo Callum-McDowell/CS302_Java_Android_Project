@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This activity is the canvas for the splash screen-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/splash_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@color/primary"
+        />
+
+    <TextView
+        android:id="@+id/splash_title"
+        style="@style/TextAppearance.MyApp.WhiteDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Minty"
+        android:textColor="@color/secondary"
+        />
+
+    <TextView
+        style="@style/TextAppearance.MyApp.DarkBody1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/splash_title"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="Where organic goods meets you"
+        android:textColor="@color/secondary"
+        android:textAlignment="center"
+        />
+
+</RelativeLayout>
