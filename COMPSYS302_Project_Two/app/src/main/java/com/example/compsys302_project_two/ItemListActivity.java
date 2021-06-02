@@ -26,6 +26,8 @@ import java.util.List;
 
 public class ItemListActivity extends BaseActivity {
 
+    CategoryType type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class ItemListActivity extends BaseActivity {
 
         // Get search parameters from intent
         Intent startingIntent = getIntent();
-        CategoryType type = (CategoryType) startingIntent.getSerializableExtra("type");
+        type = (CategoryType) startingIntent.getSerializableExtra("type");
 
         // Filter list with search parameters
         List<Item> list = DataProvider.getItems();
@@ -54,5 +56,9 @@ public class ItemListActivity extends BaseActivity {
         } else {
             errorText.setVisibility(View.GONE);
         }
+    }
+
+    public CategoryType getIntentType() {
+        return type;
     }
 }

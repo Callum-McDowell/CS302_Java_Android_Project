@@ -13,10 +13,19 @@
 
         There is also a method to obtain all Item instances of a specific Seller (using a string
         search with sellerName, for Intent and serialisation support).
+
+        It can sort by the following parameters:
+            - title:            Alphabetically descending
+            - sellerPrice:      Integer, ascending
+            - sellerDistance:   Integer, descending
 */
 package com.example.compsys302_project_two;
 
+import android.app.Notification;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Search {
@@ -90,6 +99,4 @@ public class Search {
         }
         return false;
     }
-
-
 }

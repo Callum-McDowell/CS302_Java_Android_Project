@@ -78,7 +78,7 @@ public class MultiSpinner extends AppCompatSpinner implements
             public void onClick(DialogInterface dialog, int which) {
                 // When "Ok" is clicked...
                 if (mContext instanceof SearchActivity) {
-                    ((SearchActivity)mContext).searchAuto();
+                    ((SearchActivity)mContext).filterAuto();
                 }
             }
         });
@@ -87,7 +87,7 @@ public class MultiSpinner extends AppCompatSpinner implements
             public void onCancel(DialogInterface dialog) {
                 // When clicked outside of...
                 if (mContext instanceof SearchActivity) {
-                    ((SearchActivity)mContext).searchAuto();
+                    ((SearchActivity)mContext).filterAuto();
                 }
             }
         });
@@ -109,6 +109,14 @@ public class MultiSpinner extends AppCompatSpinner implements
         // Set tooltip
         adapter.clear();
         adapter.add("Categories");
+    }
+    // Set all options in the given list to selected
+    public void setOptionsSelected(List<CategoryType> list) {
+        for (int i = 0; i < options.size(); i++) {
+            if (CategoryType.isPresentIn(options.get(i),list)) {
+                selections[i] = true;
+            }
+        }
     }
     // Get options that have been selected
     public List<CategoryType> getSelectedOptions() {

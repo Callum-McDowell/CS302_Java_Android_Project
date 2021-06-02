@@ -83,7 +83,8 @@ public class ItemAdapter extends ArrayAdapter {
 
         // Set featureText
         TextView featureText = (TextView) currentViewItem.findViewById(R.id.featureText);
-        featureText.setText(currentItem.getFeatureText());
+        String text = "[" + currentItem.getSellerDistance().toString() + " km] " + currentItem.getFeatureText();
+        featureText.setText(text);
 
 
         // OnClick - Title

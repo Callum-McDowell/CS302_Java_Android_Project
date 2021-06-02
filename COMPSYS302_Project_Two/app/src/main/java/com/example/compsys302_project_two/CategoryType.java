@@ -1,3 +1,14 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        CategoryType is an enum of the different categories. It is used for classifying items
+        and filtering them (e.g. in SearchActivity, Search, etc).
+*/
 package com.example.compsys302_project_two;
 
 import java.util.List;

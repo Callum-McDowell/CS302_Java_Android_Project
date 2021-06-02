@@ -53,8 +53,11 @@ public class SearchActivity extends BaseActivity {
         MultiSpinner categorySpinner;
         ArrayAdapter<CharSequence> spinnerAdapter;
         Button alphabetSort;
+        boolean alphabetSortFlag = false;
         Button priceSort;
+        boolean priceSortFlag = false;
         Button distanceSort;
+        boolean distanceSortFlag = false;
 
         public ViewHolder() {
             searchBar = (SearchView) findViewById(R.id.searchBar);
@@ -69,9 +72,10 @@ public class SearchActivity extends BaseActivity {
     }
 
     ViewHolder vh;
+    SearchSort searchSort;
+
     List<Item> list;
     ItemAdapter itemsAdapter;
-
     List<CategoryType> types;
 
     @Override
@@ -81,6 +85,7 @@ public class SearchActivity extends BaseActivity {
 
     /* Instantiate properties */
         vh = new ViewHolder();
+        searchSort = new SearchSort();
         types = new ArrayList<CategoryType>();
 
         // Starting scope is all items from DataProvider
@@ -88,11 +93,6 @@ public class SearchActivity extends BaseActivity {
         list = new ArrayList<Item>(DataProvider.getItems());
 
     /* Adapter and layout setup */
-        // Create and attach adapter, populated from list
-        // NOTE: Initial layout will be all items, in DataProvider FIFO order
-        itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
-        vh.listView.setAdapter(itemsAdapter);
-
         // Prepare search options
         initialiseSearchListener();
         initialiseSearchOptions();
@@ -101,20 +101,50 @@ public class SearchActivity extends BaseActivity {
      /* Prepare opening search view */
         // Intent - open search filtered to the current
         Intent startingIntent = getIntent();
-        CategoryType type;
         try {
-            type = (CategoryType) startingIntent.getSerializableExtra("type");
+            CategoryType type = (CategoryType) startingIntent.getSerializableExtra("type");
             types.add(type);
+            vh.categorySpinner.setOptionsSelected(types);
         } catch (Exception e) {
             // Do nothing, leave list empty (to include all types)
         }
-        search(types, "");
+
+        // Create and attach adapter, populated from list
+        // NOTE: Initial layout will be all items, in DataProvider FIFO order
+        itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
+        vh.listView.setAdapter(itemsAdapter);
+
+        filter(types, "");
     }
 
     private void initialiseSearchOptions() {
         // Spinner
         List<CategoryType> options = Arrays.asList(CategoryType.values());
         vh.categorySpinner.setOptions(options);
+        // Alphabetical Sort Button
+        vh.alphabetSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortAlphabetically();
+                updateAdapter();
+            }
+        });
+        // Price Sort Button
+        vh.priceSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortPrice();
+                updateAdapter();
+            }
+        });
+        // Distance Sort Button
+        vh.distanceSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortDistance();
+                updateAdapter();
+            }
+        });
     }
 
     // Search on submit or text change
@@ -122,39 +152,80 @@ public class SearchActivity extends BaseActivity {
         vh.searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                searchAuto();
+                filterAuto();
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchAuto();
+                filterAuto();
                 return true;
             }
         });
     }
-    // Search with the given parameters. Automatically draw types from categorySpinner and
-    // searchString from searchBar.
-    public void searchAuto() {
-        search(vh.categorySpinner.getSelectedOptions(), vh.searchBar.getQuery().toString());
-    }
-    // Search with given parameters.
-    private void search(List<CategoryType> types, String searchString) {
-        // Resets search scope to top level (DataProvider) before filtering
-        list = Search.findBySearch(DataProvider.getItems(), types, searchString);
-        // SORT
 
-        updateAdapter(list);
-        updateErrorText();
-    }
-    // Update adapter contents
-    private void updateAdapter(List<Item> list) {
+    // Update adapter contents with class field
+    private void updateAdapter() {
         // Update data shown by adapter
         itemsAdapter.updateObjects(list);
-        //itemsAdapter.notifyDataSetChanged();
         updateErrorText();
     }
-
+    // Filter Item list with the given parameters. Automatically draw types from categorySpinner and
+    // searchString from searchBar.
+    public void filterAuto() {
+        filter(vh.categorySpinner.getSelectedOptions(), vh.searchBar.getQuery().toString());
+    }
+    // Filter Item list with given parameters.
+    private void filter(List<CategoryType> types, String searchString) {
+        // Resets search scope to top level (DataProvider) before filtering
+        list = Search.findBySearch(DataProvider.getItems(), types, searchString);
+        resetButtonFlags(); // reset flags as sorting is also reset
+        updateAdapter();
+    }
+    // Sort Item list for descending/ascending alphabetically
+    public void sortAlphabetically() {
+        if (vh.alphabetSortFlag) {
+            // sort descending
+            searchSort.sortAlphabetically(list, false);
+            vh.alphabetSortFlag = false;
+        } else {
+            // sort ascending
+            searchSort.sortAlphabetically(list, true);
+            vh.alphabetSortFlag = true;
+        }
+        updateAdapter();
+    }
+    // Sort Item list for ascending price
+    public void sortPrice() {
+        if (vh.priceSortFlag) {
+            // sort ascending
+            searchSort.sortPrice(list, true);
+            vh.priceSortFlag = false;
+        } else {
+            // sort descending
+            searchSort.sortPrice(list, false);
+            vh.priceSortFlag = true;
+        }
+        updateAdapter();
+    }
+    // Sort Item list for ascending distance
+    public void sortDistance() {
+        if (vh.distanceSortFlag) {
+            // sort ascending
+            searchSort.sortDistance(list, true);
+            vh.distanceSortFlag = false;
+        } else {
+            // sort descending
+            searchSort.sortDistance(list, false);
+            vh.distanceSortFlag = true;
+        }
+        updateAdapter();
+    }
+    public void resetButtonFlags() {
+        vh.alphabetSortFlag = false;
+        vh.priceSortFlag    = false;
+        vh.distanceSortFlag = false;
+    }
     protected void updateErrorText() {
         // If no results, show error text
         if (list.size() == 0) {
