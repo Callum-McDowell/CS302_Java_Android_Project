@@ -82,6 +82,7 @@ public class SearchActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        setActionBarTitle("Search");
 
     /* Instantiate properties */
         vh = new ViewHolder();
@@ -165,7 +166,7 @@ public class SearchActivity extends BaseActivity {
     }
 
     // Update adapter contents with class field
-    private void updateAdapter() {
+    protected void updateAdapter() {
         // Update data shown by adapter
         itemsAdapter.updateObjects(list);
         updateErrorText();
@@ -176,7 +177,7 @@ public class SearchActivity extends BaseActivity {
         filter(vh.categorySpinner.getSelectedOptions(), vh.searchBar.getQuery().toString());
     }
     // Filter Item list with given parameters.
-    private void filter(List<CategoryType> types, String searchString) {
+    protected void filter(List<CategoryType> types, String searchString) {
         // Resets search scope to top level (DataProvider) before filtering
         list = Search.findBySearch(DataProvider.getItems(), types, searchString);
         resetButtonFlags(); // reset flags as sorting is also reset

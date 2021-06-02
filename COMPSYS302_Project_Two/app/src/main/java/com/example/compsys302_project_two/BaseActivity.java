@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
+
     // Create an action bar button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -55,5 +56,12 @@ public class BaseActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    protected void hideActionBar (boolean doHide) {
+        getSupportActionBar().hide();
+    }
+    protected void setActionBarTitle (String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

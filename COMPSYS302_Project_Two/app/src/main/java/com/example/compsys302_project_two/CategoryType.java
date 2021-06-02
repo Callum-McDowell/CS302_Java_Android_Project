@@ -23,10 +23,16 @@ public enum CategoryType {
         if (types.size() == 0) {return true;}
 
         for (CategoryType i : types) {
-            if (check == i) {
+            if (check.equals(i)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public static String toStringHeading(CategoryType in) {
+        String out = in.toString();
+        out = out.substring(0,1).toUpperCase() + out.substring(1).toLowerCase();
+        return out;
     }
 }
