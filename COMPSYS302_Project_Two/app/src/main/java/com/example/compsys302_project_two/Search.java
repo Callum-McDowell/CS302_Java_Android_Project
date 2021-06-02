@@ -10,8 +10,6 @@
         It can filter by the following parameters:
             - CategoryTypes:    Any items with the given types
             - searchString:     Any items with the sub-string in title or featureText
-            - maxPrice:         Any items with a price <= maxPrice
-            - maxDistance:      Any items with a distance <= maxDistance
 
         There is also a method to obtain all Item instances of a specific Seller.
 */
@@ -24,11 +22,11 @@ public class Search {
 
     // Return a List of Item that fulfill the given search parameters.
     // Set maxPrice or maxDistance to -1 to omit them.
-    public static List<Item> findBySearch(List<Item> items, List<CategoryType> types, String searchString, int maxPrice, int maxDistance) {
+    public static List<Item> findBySearch(List<Item> items, List<CategoryType> types, String searchString) {
         List<Item> filteredItems = new ArrayList<Item>();
 
         for (Item item : items) {
-            if (Search.matchesSearch(item, types, searchString, maxPrice, maxDistance)) {
+            if (Search.matchesSearch(item, types, searchString)) {
                 filteredItems.add(item);
             }
         }
@@ -62,17 +60,11 @@ public class Search {
     }
 
     // Return true if all parameters are met
-    private static boolean matchesSearch(Item item, List<CategoryType> types, String searchString, int maxPrice, int maxDistance) {
+    private static boolean matchesSearch(Item item, List<CategoryType> types, String searchString) {
         if (!CategoryType.isPresentIn(item.getCategoryType(), types)) {
             return false;
         }
         if (!(Search.matchesSearchString(item, searchString))) {
-            return false;
-        }
-        if (maxPrice != -1 || !(item.getPrice() <= maxPrice)) {
-            return false;
-        }
-        if (maxDistance != -1 || !(item.getSellerDistance() <= maxDistance)) {
             return false;
         }
         return true;

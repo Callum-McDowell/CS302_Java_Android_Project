@@ -3,16 +3,21 @@ package com.example.compsys302_project_two;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.SearchableInfo;
+import android.media.MediaParser;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchActivity extends BaseActivity {
@@ -22,10 +27,19 @@ public class SearchActivity extends BaseActivity {
         ListView listView;
         TextView errorText;
 
+        MultiSpinner categorySpinner;
+        ArrayAdapter<CharSequence> spinnerAdapter;
+        Button priceSort;
+        Button distanceSort;
+
         public ViewHolder() {
             searchBar = (SearchView) findViewById(R.id.searchBar);
             listView = (ListView) findViewById(R.id.listView);
             errorText = (TextView) findViewById(R.id.errorText);
+
+            categorySpinner = (MultiSpinner) findViewById(R.id.categorySpinner);
+            priceSort = (Button) findViewById(R.id.priceSort);
+            distanceSort = (Button) findViewById(R.id.distanceSort);
         }
     }
 
@@ -57,10 +71,22 @@ public class SearchActivity extends BaseActivity {
         listView.setAdapter(itemsAdapter);
         updateErrorText();
 
+        // Prepare search options
+        initialiseSearchOptions();
+
         // TEMP <-- hardcode in result
         search();
+    }
 
+    private void initialiseSearchOptions() {
+        // Spinner
+        List<CategoryType> options = Arrays.asList(CategoryType.values());
+        vh.categorySpinner.setOptions(options);
 
+    }
+
+    public List<CategoryType> getSelectedCategoryOptions() {
+        return vh.categorySpinner.getSelectedOptions();
     }
 
     private void updateAdapter(List<Item> list) {
