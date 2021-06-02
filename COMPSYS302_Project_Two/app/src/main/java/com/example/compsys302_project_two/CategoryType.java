@@ -7,7 +7,10 @@ public enum CategoryType {
 
 
     // Return true if the enum value 'check' is in the list 'types'.
+    // Returns true for all if list 'types' is empty.
     public static boolean isPresentIn(CategoryType check, List<CategoryType> types) {
+        if (types.size() == 0) {return true;}
+
         for (CategoryType i : types) {
             if (check == i) {
                 return true;

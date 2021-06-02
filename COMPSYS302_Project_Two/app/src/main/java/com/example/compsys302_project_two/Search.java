@@ -11,7 +11,8 @@
             - CategoryTypes:    Any items with the given types
             - searchString:     Any items with the sub-string in title or featureText
 
-        There is also a method to obtain all Item instances of a specific Seller.
+        There is also a method to obtain all Item instances of a specific Seller (using a string
+        search with sellerName, for Intent and serialisation support).
 */
 package com.example.compsys302_project_two;
 
@@ -46,13 +47,13 @@ public class Search {
     }
 
     // Return a List of all items with the given seller.
-    // Note that this must be called on DataProvider or other non-serialised items ONLY.
-    // Current parcelable implementation removes link to seller instance.
-    public static List<Item> findBySeller(List<Item> items, Seller seller) {
+    // Note parcelable implementation removes link to seller instance, so this much be called on
+    // sellerName not actual seller reference.
+    public static List<Item> findBySeller(List<Item> items, String sellerName) {
         List<Item> filteredItems = new ArrayList<Item>();
 
         for (Item item : items) {
-            if (seller == item.getSeller()) {
+            if (sellerName.equals(item.getSellerName())) {
                 filteredItems.add(item);
             }
         }
@@ -60,6 +61,7 @@ public class Search {
     }
 
     // Return true if all parameters are met
+    // Leave 'types' empty or searchString empty ("") to ignore them
     private static boolean matchesSearch(Item item, List<CategoryType> types, String searchString) {
         if (!CategoryType.isPresentIn(item.getCategoryType(), types)) {
             return false;
@@ -71,11 +73,19 @@ public class Search {
     }
 
     // Return true if substring is present in item title or featureText
+    // Enter an empty string "" to skip.
     private static boolean matchesSearchString(Item item, String searchString) {
-        if (item.getTitle().contains(searchString)) {
+        if (searchString.equals("")) {
             return true;
         }
-        if (item.getFeatureText().contains(searchString)) {
+        searchString = searchString.toLowerCase();
+        if (item.getTitle().toLowerCase().contains(searchString)) {
+            return true;
+        }
+        if (item.getFeatureText().toLowerCase().contains(searchString)) {
+            return true;
+        }
+        if (item.getSellerName().toLowerCase().contains(searchString)) {
             return true;
         }
         return false;

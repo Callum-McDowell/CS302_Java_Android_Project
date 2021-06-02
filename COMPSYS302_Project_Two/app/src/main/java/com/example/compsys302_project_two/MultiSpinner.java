@@ -76,7 +76,19 @@ public class MultiSpinner extends AppCompatSpinner implements
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Do nothing for positive button
+                // When "Ok" is clicked...
+                if (mContext instanceof SearchActivity) {
+                    ((SearchActivity)mContext).searchAuto();
+                }
+            }
+        });
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                // When clicked outside of...
+                if (mContext instanceof SearchActivity) {
+                    ((SearchActivity)mContext).searchAuto();
+                }
             }
         });
 
