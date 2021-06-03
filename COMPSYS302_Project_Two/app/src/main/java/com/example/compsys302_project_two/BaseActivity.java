@@ -48,10 +48,12 @@ public class BaseActivity extends AppCompatActivity {
             if (this instanceof ListActivity) {
                 // If opened from category view of items, apply category to search filter
                 CategoryType type = ((ListActivity) this).getIntentType();
-                intent.putExtra("type", type);  
+                intent.putExtra("type", type);
             }
             startActivity(intent);
-        return true;
+            return true;
+        }
+        return false;
     }
 
     protected boolean startMainActivity (MenuItem item) {
@@ -75,6 +77,7 @@ public class BaseActivity extends AppCompatActivity {
             getWindow().setEnterTransition(transition);
 //            getWindow().setExitTransition(transition); // Does not do anything!!!
         }
+    }
 // .. conflict with these? ->
     protected void hideActionBar (boolean doHide) {
         getSupportActionBar().hide();
