@@ -7,8 +7,11 @@
 package com.example.compsys302_project_two;
 
 import android.content.Intent;
+import android.transition.Slide;
+import android.transition.Transition;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +40,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected boolean startSearchActivity (MenuItem item) {
-        if (this instanceof MainActivity) {
+        if (!(this instanceof SearchActivity)) {
             Intent intent = new Intent(getBaseContext(), SearchActivity.class);
             startActivity(intent);
             return true;
@@ -53,5 +56,17 @@ public class BaseActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    // Setup activity transition settings
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Transition transition = new Slide();
+            transition.setDuration(2000);
+            transition.excludeTarget(android.R.id.statusBarBackground, true);
+            transition.excludeTarget(android.R.id.navigationBarBackground, true);
+            getWindow().setEnterTransition(transition);
+//            getWindow().setExitTransition(transition); // Does not do anything!!!
+        }
     }
 }

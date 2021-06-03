@@ -78,18 +78,6 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-    // Setup activity transition settings
-    public void setupTransition() {
-        Transition transition;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            transition = new Slide();
-            transition.setDuration(2000);
-            getWindow().setEnterTransition(transition);
-//            getWindow().setExitTransition(transition); // Does not do anything!!!
-        }
-    }
-
     // Protection override to not return to (albeit finished) splash.
     @Override
     public void onBackPressed() {
