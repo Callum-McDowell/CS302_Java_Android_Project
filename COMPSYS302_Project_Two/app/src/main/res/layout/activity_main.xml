@@ -20,6 +20,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp
+"
             app:cardCornerRadius="8dp"
             >
             <LinearLayout
@@ -71,13 +73,12 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
+        <com.example.compsys302_project_two.RoundedCornerLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            >
+            android:layout_height="wrap_content">
+
             <View style="@style/PrimeDivider"/>
-        </androidx.cardview.widget.CardView>
+        </com.example.compsys302_project_two.RoundedCornerLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_picks_view"
@@ -86,13 +87,12 @@
                 >
             </androidx.recyclerview.widget.RecyclerView>
 
-        <androidx.cardview.widget.CardView
+        <com.example.compsys302_project_two.RoundedCornerLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            >
-        <View style="@style/PrimeDivider"/>
-        </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
+
+            <View style="@style/PrimeDivider"/>
+        </com.example.compsys302_project_two.RoundedCornerLayout>
 
         <ListView
             android:id="@+id/categoriesList"

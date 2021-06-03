@@ -53,8 +53,6 @@ public class Item implements Parcelable, IItem {
     String  contentText;
     List<String> images;
 
-    List<String> meta;
-
     public Item(CategoryType type, String title, String featureImage, String featureText, float price, Seller seller, String contentText, List<String> images)
     {
         this.type = type;
@@ -69,15 +67,6 @@ public class Item implements Parcelable, IItem {
 
         this.contentText = contentText;
         this.images = images;
-    }
-
-    protected void generateMeta()
-    {
-        /* Populate with words (no spaces) from:
-            - title
-            - featureText
-            - and any other relevant sources
-         */
     }
 
     public void refreshSellerData() {
@@ -110,10 +99,6 @@ public class Item implements Parcelable, IItem {
     @Override
     public float getPrice() {
         return price;
-    }
-    @Override
-    public List<String> getMeta() {
-        return meta;
     }
     @Override
     public Seller getSeller() {

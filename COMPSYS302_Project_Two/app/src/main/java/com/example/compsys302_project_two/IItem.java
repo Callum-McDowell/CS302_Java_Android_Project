@@ -28,7 +28,6 @@ public interface IItem {
     public String   getFeatureImage();
     public String   getFeatureText();
     public float    getPrice();
-    public List<String> getMeta();
 
     public Seller   getSeller();
     public String   getSellerName();
