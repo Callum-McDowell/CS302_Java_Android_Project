@@ -66,7 +66,6 @@ public class BaseActivity extends AppCompatActivity {
         return false;
     }
 
-// does this ...
     // Setup activity transition settings
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -78,10 +77,11 @@ public class BaseActivity extends AppCompatActivity {
 //            getWindow().setExitTransition(transition); // Does not do anything!!!
         }
     }
-// .. conflict with these? ->
+
     protected void hideActionBar (boolean doHide) {
         getSupportActionBar().hide();
     }
+
     protected void setActionBarTitle (String title) {
         // See TypefaceSpan for full content and attribution
         // https://www.tristanwaddington.com/2013/03/styling-the-android-action-bar-with-a-custom-font/

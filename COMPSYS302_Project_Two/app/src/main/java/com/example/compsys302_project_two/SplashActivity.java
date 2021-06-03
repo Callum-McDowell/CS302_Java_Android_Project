@@ -6,6 +6,9 @@ package com.example.compsys302_project_two;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.transition.Fade;
 
 import android.app.ActivityOptions;
@@ -20,11 +23,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
 
     private ViewGroup splashLayout;
-    private View title;
+    private TextView splashTitle;
     private View background;
     private View featureText;
 
@@ -36,10 +40,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
 //        splashLayout = (ViewGroup) findViewById(R.id.splash_layout);
-//        title = (View) findViewById(R.id.splash_title);
+        splashTitle = (TextView) findViewById(R.id.splash_title);
 //        background = (View) findViewById(R.id.splash_background);
 //        featureText = (View) findViewById(R.id.splash_feature_text);
-
+        setSplashTitle("Garden Hub");
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -71,6 +75,15 @@ public class SplashActivity extends AppCompatActivity {
         } else {
             startActivity(intent);
         }
+    }
+
+    protected void setSplashTitle (String title) {
+        // See TypefaceSpan for full content and attribution
+        // https://www.tristanwaddington.com/2013/03/styling-the-android-action-bar-with-a-custom-font/
+        SpannableString s = new SpannableString(title);
+        s.setSpan(new TypefaceSpan(this, "lehavre_roughbasic.otf"), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        splashTitle.setText(s);
     }
 
     // Override onStop() to destory splashscreen a bit later to allow connection with MainActivity's
