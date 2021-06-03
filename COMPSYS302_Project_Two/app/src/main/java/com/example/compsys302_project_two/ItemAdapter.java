@@ -44,6 +44,13 @@ public class ItemAdapter extends ArrayAdapter {
         mContext = context;
     }
 
+    public void updateObjects(@NonNull List<Item> objects) {
+        mItems.clear();
+        mItems.addAll(objects);
+        this.notifyDataSetChanged();
+    }
+
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -76,7 +83,8 @@ public class ItemAdapter extends ArrayAdapter {
 
         // Set featureText
         TextView featureText = (TextView) currentViewItem.findViewById(R.id.featureText);
-        featureText.setText(currentItem.getFeatureText());
+        String text = "[" + currentItem.getSellerDistance().toString() + " km] " + currentItem.getFeatureText();
+        featureText.setText(text);
 
 
         // OnClick - Title
@@ -86,8 +94,8 @@ public class ItemAdapter extends ArrayAdapter {
                 // When featureImage is clicked...
                 // Transition to DetailActivity
 
-                //String message = "DetailActivity";
-                //Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+                // Increment view count for Metadata
+                Metadata.incrementItemView(currentItem);
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", currentItem);

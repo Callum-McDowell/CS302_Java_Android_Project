@@ -23,11 +23,13 @@ public class ImagePagerAdapter extends PagerAdapter {
     private Context mContext;
     private List<String> mImages;
     private LayoutInflater mlayoutInflater;
+    private boolean showWholeImage;
 
-    public ImagePagerAdapter(Context context, List<String> images) {
+    public ImagePagerAdapter(Context context, List<String> images, boolean showWholeImage) {
         super();
         mContext = context;
         mImages = images;
+        this.showWholeImage = showWholeImage;
         mlayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -52,6 +54,12 @@ public class ImagePagerAdapter extends PagerAdapter {
         int i = mContext.getResources().getIdentifier(
                 mImages.get(position), "drawable", mContext.getPackageName());
         imageView.setImageResource(i);
+
+        if (showWholeImage) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        } else {
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
 
         Objects.requireNonNull(container).addView(pagerView);
 

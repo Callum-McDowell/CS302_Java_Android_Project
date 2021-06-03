@@ -1,12 +1,15 @@
 # COMSYS 302, Team 04 - Java Application Project
+### Hao and Callum
 
-Welcome to our project repo. Our project is to develope a android phone/tablet application which will:
 
-- Display a list of catagories.
-    - Includes a search functionality from the initial window.
-    - Includes a recommendation functionality on the initial window.
-- Upon selection of these catagories, a new window shows a recycling list of items will be offered for selection.
-- When an item is selected, a new window shows its detail, including an image viewer to view images of the item.
+Welcome to our project repo. Our project goal is to develop an android/java application.
+
+It should:
+- Display a series of dynamically loaded categories (i.e. with a ListView).
+- Display a series of dynamically loaded listings (i.e. with a ListView).
+    - Includes a search functionality for the listings.
+    - Includes a recommendation functionality on of top-picks on the MainActivity..
+- A listing can be viewed in further detail, with a multi-image viewer (e.g. PageViewer).
 
 ## Instructions
 

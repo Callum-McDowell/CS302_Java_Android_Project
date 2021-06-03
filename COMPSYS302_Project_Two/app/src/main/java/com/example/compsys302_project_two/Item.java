@@ -155,6 +155,7 @@ public class Item implements Parcelable, IItem {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeSerializable(getCategoryType());
         dest.writeString(getTitle());
         dest.writeString(getFeatureImage());
         dest.writeString(getFeatureText());
@@ -181,6 +182,7 @@ public class Item implements Parcelable, IItem {
     private Item(Parcel in) {
         // Constructor for parcelable
         // Reads data as FIFO
+        type            = (CategoryType) in.readSerializable();
         title           = in.readString();
         featureImage    = in.readString();
         featureText     = in.readString();
