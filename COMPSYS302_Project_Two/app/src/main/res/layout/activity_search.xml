@@ -18,21 +18,80 @@
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
             >
-            <SearchView
-                android:id="@+id/search_bar_view"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_gravity="center_horizontal"
-                android:inputType="text"
-                android:iconifiedByDefault="false"
-                android:queryHint="Enter Searchable Terms"
-                />
+                android:orientation="vertical"
+                >
+                <SearchView
+                    android:id="@+id/searchBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:inputType="text"
+                    android:iconifiedByDefault="false"
+                    android:queryHint="Search here..."
+                    />
+                <!-- Buttons go here: types, maxPrice, maxDistance, sort price low-high, sort distance low-high -->
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <com.example.compsys302_project_two.MultiSpinner
+                            android:id="@+id/categorySpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dropdown"
+                            style="@style/Widget.AppCompat.Spinner.DropDown"
+                            />
+                        <Button
+                            android:id="@+id/alphabetSort"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sort"
+                            android:drawableLeft="@drawable/ic_baseline_sort_by_alpha_24"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            />
+                        <Button
+                            android:id="@+id/priceSort"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sort"
+                            android:drawableLeft="@drawable/ic_baseline_attach_money_24"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            />
+                        <Button
+                            android:id="@+id/distanceSort"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sort"
+                            android:drawableLeft="@drawable/baseline_person_pin_24"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
         </com.google.android.material.card.MaterialCardView>
         <ListView
-            android:id="@+id/search_results_list"
+            android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="0 search results"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:visibility="gone"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

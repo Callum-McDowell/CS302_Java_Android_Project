@@ -37,12 +37,14 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected boolean startSearchActivity (MenuItem item) {
-        if (this instanceof MainActivity) {
-            Intent intent = new Intent(getBaseContext(), SearchActivity.class);
-            startActivity(intent);
-            return true;
+        Intent intent = new Intent(getBaseContext(), SearchActivity.class);
+        if (this instanceof ItemListActivity) {
+            // If opened from category view of items, apply category to search filter
+            CategoryType type = ((ItemListActivity) this).getIntentType();
+            intent.putExtra("type", type);
         }
-        return false;
+        startActivity(intent);
+        return true;
     }
 
     protected boolean startMainActivity (MenuItem item) {

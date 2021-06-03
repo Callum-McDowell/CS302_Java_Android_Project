@@ -5,9 +5,9 @@ import java.util.List;
 
 public class DataProvider {
 
-    protected static List<Item> items = generateItems();
-    protected static List<Category> categories = generateCategories();
-    protected static ArrayList<Item> topPicks = generateTopPicks();
+    protected static final List<Item> items = generateItems();
+    protected static final List<Category> categories = generateCategories();
+    protected static final ArrayList<Item> topPicks = generateTopPicks();
 
     public static List<Item> getItems() {
         return items;
@@ -18,7 +18,7 @@ public class DataProvider {
     }
     public static ArrayList<Item> getTopPicks() { return topPicks; }
 
-    public static List<Item> generateItems()
+    private static List<Item> generateItems()
     {
         List<Item> items = new ArrayList<Item>();
 
@@ -133,9 +133,48 @@ public class DataProvider {
         return items;
     }
 
-    public static List<Category> generateCategories()
+    private static List<Category> generateCategories()
     {
         List<Category> categories = new ArrayList<Category>();
+
+        {
+            Category category;
+
+            CategoryType type;
+            String  title;
+            String  featureImage;
+            String  featureText;
+
+
+            // Category 1
+            type = CategoryType.FRUIT;
+            title = "Fruit";
+            featureImage= "img_berries";
+            featureText = "Fresh fruit.";
+
+            category = new Category(type, title, featureImage, featureText);
+            categories.add(category);
+
+            // Category 2
+            // Category 1
+            type = CategoryType.VEGETABLES;
+            title = "Vegetables";
+            featureImage= "img_vegetablesrustic";
+            featureText = "Fresh vegetables.";
+
+            category = new Category(type, title, featureImage, featureText);
+            categories.add(category);
+
+            // Category 3
+            // Category 1
+            type = CategoryType.HERBS;
+            title = "Herbs";
+            featureImage= "img_herbs";
+            featureText = "Tasty herbs.";
+
+            category = new Category(type, title, featureImage, featureText);
+            categories.add(category);
+        }
 
 
         for (int i = 0; i < 10; i++)

@@ -58,12 +58,6 @@ public class CategoryAdapter extends ArrayAdapter {
             public void onClick(View v) {
                 // When the item is clicked...
                 // Transition to ListActivity
-
-                //@TODO
-                // Use intent to apply category filter?
-                //String message = "ListActivity";
-                //Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
-
                 Intent itemListActivity = new Intent(mContext.getApplicationContext(), ItemListActivity.class);
                 itemListActivity.putExtra("type", currentCategory.getCategoryType());
 
