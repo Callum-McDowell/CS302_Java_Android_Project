@@ -1,23 +1,13 @@
 package com.example.compsys302_project_two;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
 import java.util.Locale;
 
 public class DetailsActivity extends BaseActivity {
@@ -84,8 +74,8 @@ public class DetailsActivity extends BaseActivity {
         vh.sellerName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Open ItemListActivity of all Items from seller
-                Intent itemListActivity = new Intent(getBaseContext(), ItemListActivity.class);
+                // Open ListActivity of all Items from seller
+                Intent itemListActivity = new Intent(getBaseContext(), ListActivity.class);
                 itemListActivity.putExtra("sellerName", item.getSellerName());
                 startActivity(itemListActivity);
             }

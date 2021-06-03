@@ -115,7 +115,7 @@ public class SearchActivity extends BaseActivity {
         itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
         vh.listView.setAdapter(itemsAdapter);
 
-        filter(types, "");
+        filterAuto();
     }
 
     private void initialiseSearchOptions() {

@@ -86,6 +86,13 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
         });
     }
 
+    // Clear adapter data and set to given list
+    public void updateData(@NonNull List<Item> list) {
+        mData.clear();
+        mData.addAll(list);
+        this.notifyDataSetChanged();
+    }
+
     // Total number of items
     @Override
     public int getItemCount() {

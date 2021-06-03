@@ -80,11 +80,6 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
         <TextView
             android:id="@+id/errorText"
             android:layout_width="match_parent"
@@ -92,6 +87,12 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="0 search results"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            />
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

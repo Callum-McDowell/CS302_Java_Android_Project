@@ -6,10 +6,10 @@
 
     Summary
 
-        ItemListActivity is a basic activity for showing Item instances in a ListView. It is
+        ListActivity is a basic activity for showing Item instances in a ListView. It is
         opened by CategoryAdapter, and for simple browsing only.
 
-        ItemListActivity uses the standard itemsAdapter, and is only capable of searching by
+        ListActivity uses the standard itemsAdapter, and is only capable of searching by
         CategoryType. This is as more detailed searches will be carried out in SearchActivity.
 */
 package com.example.compsys302_project_two;
@@ -24,7 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemListActivity extends BaseActivity {
+public class ListActivity extends BaseActivity {
 
     List<Item> list = DataProvider.getItems();
     CategoryType type;
