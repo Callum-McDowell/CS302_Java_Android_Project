@@ -7,10 +7,13 @@
 package com.example.compsys302_project_two;
 
 import android.content.Intent;
+import android.transition.Slide;
+import android.transition.Transition;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,14 +43,17 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected boolean startSearchActivity (MenuItem item) {
-        Intent intent = new Intent(getBaseContext(), SearchActivity.class);
-        if (this instanceof ListActivity) {
-            // If opened from category view of items, apply category to search filter
-            CategoryType type = ((ListActivity) this).getIntentType();
-            intent.putExtra("type", type);
+        if (!(this instanceof SearchActivity)) {
+            Intent intent = new Intent(getBaseContext(), SearchActivity.class);
+            if (this instanceof ListActivity) {
+                // If opened from category view of items, apply category to search filter
+                CategoryType type = ((ListActivity) this).getIntentType();
+                intent.putExtra("type", type);
+            }
+            startActivity(intent);
+            return true;
         }
-        startActivity(intent);
-        return true;
+        return false;
     }
 
     protected boolean startMainActivity (MenuItem item) {
@@ -60,6 +66,19 @@ public class BaseActivity extends AppCompatActivity {
         return false;
     }
 
+// does this ...
+    // Setup activity transition settings
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Transition transition = new Slide();
+            transition.setDuration(2000);
+            transition.excludeTarget(android.R.id.statusBarBackground, true);
+            transition.excludeTarget(android.R.id.navigationBarBackground, true);
+            getWindow().setEnterTransition(transition);
+//            getWindow().setExitTransition(transition); // Does not do anything!!!
+        }
+    }
+// .. conflict with these? ->
     protected void hideActionBar (boolean doHide) {
         getSupportActionBar().hide();
     }
@@ -70,5 +89,6 @@ public class BaseActivity extends AppCompatActivity {
         s.setSpan(new TypefaceSpan(this, "lehavre_roughbasic.otf"), 0, s.length(),
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         getSupportActionBar().setTitle(s);
+
     }
 }

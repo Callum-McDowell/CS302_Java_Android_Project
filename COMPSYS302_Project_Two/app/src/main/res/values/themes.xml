@@ -14,6 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- No ActionBar theme for splash -->
+    <style name="Theme.COMPSYS302_Project_Two.Splash" parent="Theme.COMPSYS302_Project_Two">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <!--Custom Divider Style-->
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
