@@ -94,8 +94,8 @@ public class ItemAdapter extends ArrayAdapter {
                 // When featureImage is clicked...
                 // Transition to DetailActivity
 
-                //String message = "DetailActivity";
-                //Toast.makeText(mContext.getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+                // Increment view count for Metadata
+                Metadata.incrementItemView(currentItem);
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", currentItem);

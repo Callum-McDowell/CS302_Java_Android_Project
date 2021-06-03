@@ -41,9 +41,9 @@ public class BaseActivity extends AppCompatActivity {
 
     protected boolean startSearchActivity (MenuItem item) {
         Intent intent = new Intent(getBaseContext(), SearchActivity.class);
-        if (this instanceof ItemListActivity) {
+        if (this instanceof ListActivity) {
             // If opened from category view of items, apply category to search filter
-            CategoryType type = ((ItemListActivity) this).getIntentType();
+            CategoryType type = ((ListActivity) this).getIntentType();
             intent.putExtra("type", type);
         }
         startActivity(intent);
