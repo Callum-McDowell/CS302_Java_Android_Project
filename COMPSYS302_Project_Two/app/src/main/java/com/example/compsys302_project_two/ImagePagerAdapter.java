@@ -56,7 +56,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         imageView.setImageResource(i);
 
         if (showWholeImage) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         } else {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
