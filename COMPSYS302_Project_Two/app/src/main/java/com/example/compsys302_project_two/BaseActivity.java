@@ -7,12 +7,15 @@
 package com.example.compsys302_project_two;
 
 import android.content.Intent;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
+
 
     // Create an action bar button
     @Override
@@ -55,5 +58,17 @@ public class BaseActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    protected void hideActionBar (boolean doHide) {
+        getSupportActionBar().hide();
+    }
+    protected void setActionBarTitle (String title) {
+        // See TypefaceSpan for full content and attribution
+        // https://www.tristanwaddington.com/2013/03/styling-the-android-action-bar-with-a-custom-font/
+        SpannableString s = new SpannableString(title);
+        s.setSpan(new TypefaceSpan(this, "lehavre_roughbasic.otf"), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        getSupportActionBar().setTitle(s);
     }
 }

@@ -70,12 +70,26 @@ public class DetailsActivity extends BaseActivity {
         Item item = (Item) startingIntent.getParcelableExtra("item");
         this.item = item;
 
+        if (item.getCategoryType() != null) {
+            setActionBarTitle(CategoryType.toStringHeading(item.getCategoryType()));
+        }
         refreshViews();
 
         // Initialise image ViewPager
         // https://www.geeksforgeeks.org/image-slider-in-android-using-viewpager/
-        vh.imagePagerAdapter = new ImagePagerAdapter(this, item.getImages());
+        vh.imagePagerAdapter = new ImagePagerAdapter(this, item.getImages(), false);
         vh.viewPager.setAdapter(vh.imagePagerAdapter);
+
+        // Create seller button to ItemListView
+        vh.sellerName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open ItemListActivity of all Items from seller
+                Intent itemListActivity = new Intent(getBaseContext(), ItemListActivity.class);
+                itemListActivity.putExtra("sellerName", item.getSellerName());
+                startActivity(itemListActivity);
+            }
+        });
     }
 
     private void refreshViews() {

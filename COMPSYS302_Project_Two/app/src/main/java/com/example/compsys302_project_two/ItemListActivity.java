@@ -26,7 +26,9 @@ import java.util.List;
 
 public class ItemListActivity extends BaseActivity {
 
+    List<Item> list = DataProvider.getItems();
     CategoryType type;
+    String sellerName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +37,25 @@ public class ItemListActivity extends BaseActivity {
 
         // Get search parameters from intent
         Intent startingIntent = getIntent();
+        // WARNING: Either of these intents could fail and return null at any time. Must check.
         type = (CategoryType) startingIntent.getSerializableExtra("type");
+        sellerName = startingIntent.getStringExtra("sellerName");
 
         // Filter list with search parameters
-        List<Item> list = DataProvider.getItems();
         List<CategoryType> types = new ArrayList<CategoryType>();
-        types.add(type);
-        list = Search.findByCategory(list, types);
+        if (type != null) {
+            // Show all items in given category
+            types.add(type);
+            list = Search.findByCategory(list, types);
+            setActionBarTitle(CategoryType.toStringHeading(type));
+        } else if (sellerName != null) {
+            // Show all items with the provided sellerName
+            list = Search.findBySeller(list, sellerName);
+            setActionBarTitle(sellerName);
+        } else {
+            // Default to all items (types and sellerName default values will be ignored)
+            list = Search.findBySearch(list, types, sellerName);
+        }
 
         // Create and attach adapter, populated from list
         ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
