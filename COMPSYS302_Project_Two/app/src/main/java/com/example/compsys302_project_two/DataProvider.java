@@ -40,7 +40,7 @@ public class DataProvider {
             /** FRUIT **/
             // Item 1
             type = CategoryType.FRUIT;
-            title = "Cheap Red Eating Apples";
+            title = "Cheap Eating Apples";
             featureImage= "img_applebranch";
             featureText = "Selling bags cheap, come get them before they rot. Free if you pick your own.";
             price = (float)2.5;
@@ -61,7 +61,7 @@ public class DataProvider {
 
             // Item 2
             type = CategoryType.FRUIT;
-            title = "Purple grapes on the vine";
+            title = "Purple vine grapes";
             featureImage= "img_grapesbunch";
             featureText = "No pesticides, no bloom, all natural and good condition. Watch out for seeds!";
             price = (float)6;
