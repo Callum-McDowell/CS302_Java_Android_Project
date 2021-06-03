@@ -59,9 +59,9 @@ public class SplashActivity extends AppCompatActivity {
     // Setup activity transition settings
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void setupTransition() {
-        Transition transition = new Slide();
-        transition.setDuration(6000);
-        getWindow().setEnterTransition(transition);
+        Transition transition = new Fade();
+        transition.setDuration(3000);
+//        getWindow().setEnterTransition(transition);
         getWindow().setExitTransition(transition);
 //        TransitionManager.beginDelayedTransition(splashLayout, transition);
     }

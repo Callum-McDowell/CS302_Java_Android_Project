@@ -7,6 +7,7 @@
 package com.example.compsys302_project_two;
 
 import android.content.Intent;
+import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.text.Spannable;
@@ -69,7 +70,7 @@ public class BaseActivity extends AppCompatActivity {
     // Setup activity transition settings
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            Transition transition = new Slide();
+            Transition transition = new Fade();
             transition.setDuration(2000);
             transition.excludeTarget(android.R.id.statusBarBackground, true);
             transition.excludeTarget(android.R.id.navigationBarBackground, true);
