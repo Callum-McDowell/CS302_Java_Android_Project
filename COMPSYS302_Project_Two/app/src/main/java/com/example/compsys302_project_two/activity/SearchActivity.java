@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -245,15 +246,10 @@ public class SearchActivity extends BaseActivity {
     @Override
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-
-            Slide slide = new Slide();
-            slide.setSlideEdge(Gravity.RIGHT);
-            slide.setDuration(1000);
-            slide.excludeTarget(android.R.id.statusBarBackground, true);
-            slide.excludeTarget(android.R.id.navigationBarBackground, true);
-            getWindow().setEnterTransition(slide);
-            slide.setSlideEdge(Gravity.LEFT);
-            getWindow().setExitTransition(slide);
+            slideEnterTransitionSetup(Gravity.RIGHT);
+            slideExitTransitionSetup(Gravity.LEFT);
         }
     }
+
+
 }

@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
+import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.Transition;
@@ -27,6 +28,8 @@ import android.text.SpannableString;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.view.animation.LinearInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -83,12 +86,6 @@ public class BaseActivity extends AppCompatActivity {
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Slide slide = new Slide();
-                slide.setSlideEdge(Gravity.RIGHT);
-                slide.excludeTarget(android.R.id.statusBarBackground, true);
-                slide.excludeTarget(android.R.id.navigationBarBackground, true);
-                slide.setDuration(1000);
-                getWindow().setExitTransition(slide);
                 startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
             } else {
                 startActivity(intent);
@@ -101,8 +98,13 @@ public class BaseActivity extends AppCompatActivity {
     protected boolean startMainActivity (MenuItem item) {
         if (!(this instanceof MainActivity)) {
             Intent intent = new Intent(getBaseContext(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                fadeExitTransitionSetup();
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            } else {
+                startActivity(intent);
+            }
             return true;
         }
         return false;
@@ -111,23 +113,59 @@ public class BaseActivity extends AppCompatActivity {
     // Setup activity-activity transition settings
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Window w = getWindow();
 
-            getWindow().setAllowEnterTransitionOverlap(true);
-            getWindow().setAllowReturnTransitionOverlap(true);
+            w.setAllowEnterTransitionOverlap(true);
+            w.setAllowReturnTransitionOverlap(true);
 
             Transition transition = new Fade();
             transition.setDuration(1000);
             transition.excludeTarget(android.R.id.statusBarBackground, true);
             transition.excludeTarget(android.R.id.navigationBarBackground, true);
-            getWindow().setEnterTransition(transition);
+            w.setEnterTransition(transition);
 
+            slideExitTransitionSetup(Gravity.LEFT);
+        }
+    }
+
+    protected void slideExitTransitionSetup(int gravity) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             Slide slide = new Slide();
-            slide.setSlideEdge(Gravity.LEFT);
-//            slide.setInterpolator(new LinearInterpolator());
+            slide.setSlideEdge(gravity);
             slide.excludeTarget(android.R.id.statusBarBackground, true);
             slide.excludeTarget(android.R.id.navigationBarBackground, true);
             slide.setDuration(1000);
             getWindow().setExitTransition(slide);
+        }
+    }
+    protected void slideEnterTransitionSetup(int gravity) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Slide slide = new Slide();
+            slide.setSlideEdge(gravity);
+            slide.excludeTarget(android.R.id.statusBarBackground, true);
+            slide.excludeTarget(android.R.id.navigationBarBackground, true);
+            slide.setDuration(1000);
+            getWindow().setEnterTransition(slide);
+        }
+    }
+
+    protected void fadeExitTransitionSetup() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Fade fade = new Fade();
+            fade.excludeTarget(android.R.id.statusBarBackground, true);
+            fade.excludeTarget(android.R.id.navigationBarBackground, true);
+            fade.setDuration(1000);
+            getWindow().setExitTransition(fade);
+        }
+    }
+
+    protected void explodeEnterTransitionSetup() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Transition transition = new Explode();
+            transition.excludeTarget(android.R.id.statusBarBackground, true);
+            transition.excludeTarget(android.R.id.navigationBarBackground, true);
+            transition.setDuration(1000);
+            getWindow().setEnterTransition(transition);
         }
     }
 }

@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -70,6 +71,7 @@ public class DetailsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupTransition();
         setContentView(R.layout.activity_details);
 
         vh = new ViewHolder();
@@ -114,5 +116,14 @@ public class DetailsActivity extends BaseActivity {
 
         vh.contentText.setText(item.getContentText());
         //vh.images
+    }
+
+    // Setup activity-activity transition settings
+    @Override
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            explodeEnterTransitionSetup();
+            fadeExitTransitionSetup();
+        }
     }
 }

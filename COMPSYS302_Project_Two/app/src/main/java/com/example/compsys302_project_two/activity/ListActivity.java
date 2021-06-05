@@ -96,14 +96,11 @@ public class ListActivity extends BaseActivity {
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
-            Slide slide = new Slide();
-            slide.setSlideEdge(Gravity.LEFT);
-            slide.setDuration(1000);
-            slide.excludeTarget(android.R.id.statusBarBackground, true);
-            slide.excludeTarget(android.R.id.navigationBarBackground, true);
-            getWindow().setEnterTransition(slide);
-            slide.setSlideEdge(Gravity.RIGHT);
-            getWindow().setExitTransition(slide);
+            slideEnterTransitionSetup(Gravity.RIGHT);
+            slideExitTransitionSetup(Gravity.LEFT);
         }
     }
+
+
+
 }

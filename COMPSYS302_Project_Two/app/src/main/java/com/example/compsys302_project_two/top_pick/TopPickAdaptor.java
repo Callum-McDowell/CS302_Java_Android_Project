@@ -17,8 +17,11 @@
 
 package com.example.compsys302_project_two.top_pick;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,7 +102,12 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", thisPick);
-                mContext.startActivity(detailsActivity);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    mContext.startActivity(detailsActivity, ActivityOptions.makeSceneTransitionAnimation(
+                            (Activity) mContext).toBundle());
+                } else {
+                    mContext.startActivity(detailsActivity);
+                }
                 // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
             }
         });
