@@ -222,7 +222,7 @@ public class DataProvider {
             images = new ArrayList<String>();
             images.add(featureImage);
             images.add("img_applebranch");
-            images.add("img_applespicking");
+            images.add("img_applepicking");
 
 //            seller = new Seller(sellerName, sellerDistance, sellerRating);
             item = new Item(type, title, featureImage, featureText, price, seller, contentText, images);
