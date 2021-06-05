@@ -25,10 +25,12 @@
                             analytics.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.item;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.example.compsys302_project_two.category.CategoryType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,7 @@ public class Item implements Parcelable, IItem {
     // WARNING: Reference to seller is lost when serialised, thus contents are cached locally.
     //          The moment Item is serialised and passed between activities its un-parceled
     //          instance has seller == null.
-    Seller  seller;
+    Seller seller;
     String  sellerName;
     Integer sellerDistance;
     Integer sellerRating;

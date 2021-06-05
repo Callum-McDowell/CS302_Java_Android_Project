@@ -20,13 +20,12 @@
             - sellerDistance:   Integer, descending
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.search;
 
-import android.app.Notification;
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.item.Item;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Search {

@@ -12,7 +12,7 @@
             - Category ListView through the CategoryAdaptor
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.view.View;
+
+import com.example.compsys302_project_two.DataProvider;
+import com.example.compsys302_project_two.top_pick.Metadata;
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.top_pick.TopPickAdaptor;
+import com.example.compsys302_project_two.category.Category;
+import com.example.compsys302_project_two.category.CategoryAdapter;
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.item.Item;
+import com.example.compsys302_project_two.search.Search;
 
 public class MainActivity extends BaseActivity {
 

@@ -13,7 +13,7 @@
         All other activities (except splash) extends off this activity.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import android.content.Intent;
 import android.transition.Fade;
@@ -24,6 +24,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.helper_class.TypefaceSpan;
+import com.example.compsys302_project_two.category.CategoryType;
 
 public class BaseActivity extends AppCompatActivity {
 

@@ -9,7 +9,7 @@
         SearchActivity is the launch activity which will transition to main after some delay.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,14 +23,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.transition.Slide;
 import android.transition.Transition;
-import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.helper_class.TypefaceSpan;
 
 public class SplashActivity extends AppCompatActivity {
 

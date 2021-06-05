@@ -11,16 +11,16 @@
         and selected through a Viewpager adapter and ViewPager.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.compsys302_project_two.helper_class.ImagePagerAdapter;
+import com.example.compsys302_project_two.R;
 
 import java.util.List;
 

@@ -16,7 +16,7 @@
 
 // ATTRIBUTION: https://gist.github.com/twaddington/b91341ea5615698b53b8
 //              https://www.tristanwaddington.com/2013/03/styling-the-android-action-bar-with-a-custom-font/
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.helper_class;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -27,6 +27,8 @@ import android.text.style.MetricAffectingSpan;
 
 import androidx.collection.LruCache;
 import androidx.core.content.res.ResourcesCompat;
+
+import com.example.compsys302_project_two.R;
 
 /**
  * Style a {@link Spannable} with a custom {@link Typeface}.

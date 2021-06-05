@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activity.MainActivity"
     >
 
     <LinearLayout
@@ -73,12 +73,12 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <com.example.compsys302_project_two.RoundedCornerLayout
+        <com.example.compsys302_project_two.helper_class.RoundedCornerLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <View style="@style/PrimeDivider"/>
-        </com.example.compsys302_project_two.RoundedCornerLayout>
+        </com.example.compsys302_project_two.helper_class.RoundedCornerLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_picks_view"
@@ -87,12 +87,12 @@
                 >
             </androidx.recyclerview.widget.RecyclerView>
 
-        <com.example.compsys302_project_two.RoundedCornerLayout
+        <com.example.compsys302_project_two.helper_class.RoundedCornerLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <View style="@style/PrimeDivider"/>
-        </com.example.compsys302_project_two.RoundedCornerLayout>
+        </com.example.compsys302_project_two.helper_class.RoundedCornerLayout>
 
         <ListView
             android:id="@+id/categoriesList"

@@ -13,13 +13,20 @@
         CategoryType. This is as more detailed searches will be carried out in SearchActivity.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.compsys302_project_two.DataProvider;
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.item.Item;
+import com.example.compsys302_project_two.item.ItemAdapter;
+import com.example.compsys302_project_two.search.Search;
 
 import java.util.ArrayList;
 import java.util.List;

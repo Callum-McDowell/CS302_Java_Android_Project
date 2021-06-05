@@ -14,6 +14,11 @@
 
 package com.example.compsys302_project_two;
 
+import com.example.compsys302_project_two.category.Category;
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.item.Item;
+import com.example.compsys302_project_two.item.Seller;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +48,7 @@ public class DataProvider {
             String  featureText;
             float   price;
 
-            Seller  seller;
+            Seller seller;
             String  sellerName;
             Integer sellerDistance;
             Integer sellerRating;

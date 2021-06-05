@@ -14,7 +14,7 @@
     By Jaap van Hengstum
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.helper_class;
 
 import android.content.Context;
 import android.graphics.*;

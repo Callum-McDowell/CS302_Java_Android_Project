@@ -9,7 +9,7 @@
         CategoryType is an enum of the different categories. It is used for classifying items
         and filtering them (e.g. in SearchActivity, Search, etc).
 */
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.category;
 
 import java.util.List;
 

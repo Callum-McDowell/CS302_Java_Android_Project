@@ -16,7 +16,9 @@
             - getImages();
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.item;
+
+import com.example.compsys302_project_two.category.CategoryType;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public interface IItem {
     public String   getFeatureText();
     public float    getPrice();
 
-    public Seller   getSeller();
+    public Seller getSeller();
     public String   getSellerName();
     public Integer  getSellerDistance();
     public Integer  getSellerRating();

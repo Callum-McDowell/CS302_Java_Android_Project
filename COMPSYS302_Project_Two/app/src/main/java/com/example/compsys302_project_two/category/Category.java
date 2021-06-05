@@ -16,7 +16,7 @@
             - featureText:  A 1-2 sentence summary of the category.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.category;
 
 public class Category implements ICategory {
 

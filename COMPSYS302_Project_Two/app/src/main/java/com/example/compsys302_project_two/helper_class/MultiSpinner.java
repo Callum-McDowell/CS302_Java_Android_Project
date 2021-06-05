@@ -9,7 +9,7 @@
         Adapted from https://www.woolha.com/tutorials/android-multi-select-spinner-example
         Spinner with checkbox format. Creates an alarm dialogue.
 */
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.helper_class;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,8 +18,10 @@ import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
-import androidx.appcompat.widget.AlertDialogLayout;
 import androidx.appcompat.widget.AppCompatSpinner;
+
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.activity.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -16,7 +16,9 @@
 
         Useful: https://stackoverflow.com/questions/2784514/sort-arraylist-of-custom-objects-by-property/2784576
 */
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.search;
+
+import com.example.compsys302_project_two.item.Item;
 
 import java.util.Collections;
 import java.util.Comparator;

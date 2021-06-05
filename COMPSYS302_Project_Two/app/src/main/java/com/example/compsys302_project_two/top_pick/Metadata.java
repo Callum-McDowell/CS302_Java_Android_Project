@@ -17,14 +17,15 @@
             - views:        A hashmap mapping each item's view frequency.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.top_pick;
+
+import com.example.compsys302_project_two.DataProvider;
+import com.example.compsys302_project_two.item.Item;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Metadata {
     protected static Map<Item, Integer> views = generateViews();

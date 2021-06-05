@@ -11,7 +11,7 @@
         It receives the items from the intent the activity passed to transition to this activity.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -20,6 +20,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.compsys302_project_two.helper_class.ImagePagerAdapter;
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.item.Item;
 
 import java.util.Locale;
 

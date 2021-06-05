@@ -20,7 +20,7 @@
         selection. sort() will applied for
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +30,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import com.example.compsys302_project_two.activity.BaseActivity;
+import com.example.compsys302_project_two.DataProvider;
+import com.example.compsys302_project_two.helper_class.MultiSpinner;
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.item.Item;
+import com.example.compsys302_project_two.item.ItemAdapter;
+import com.example.compsys302_project_two.search.Search;
+import com.example.compsys302_project_two.search.SearchSort;
 
 import java.util.ArrayList;
 import java.util.Arrays;

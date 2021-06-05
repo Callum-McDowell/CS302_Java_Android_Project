@@ -15,7 +15,7 @@
             - mContext:         The context under which the adaptor runs
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.category;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +29,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+
+import com.example.compsys302_project_two.activity.ListActivity;
+import com.example.compsys302_project_two.R;
 
 import java.util.List;
 

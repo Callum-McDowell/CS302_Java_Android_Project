@@ -19,7 +19,7 @@
                         is a 5-star scale from 0 to 5.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.item;
 
 public class Seller {
 

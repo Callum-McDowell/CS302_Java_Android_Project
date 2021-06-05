@@ -10,7 +10,9 @@
         class instance.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.category;
+
+import com.example.compsys302_project_two.category.CategoryType;
 
 public interface ICategory {
 

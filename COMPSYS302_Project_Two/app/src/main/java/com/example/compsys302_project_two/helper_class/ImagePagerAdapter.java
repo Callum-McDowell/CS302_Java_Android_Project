@@ -10,7 +10,7 @@
         slidable page viewer. The viewer appearance is as described in layout_pager.xml.
 */
 
-package com.example.compsys302_project_two;
+package com.example.compsys302_project_two.helper_class;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.activity.GalleryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
