@@ -62,14 +62,14 @@ public class SearchActivity extends BaseActivity {
         boolean distanceSortFlag = false;
 
         public ViewHolder() {
-            searchBar = (SearchView) findViewById(R.id.searchBar);
-            listView = (ListView) findViewById(R.id.listView);
-            errorText = (TextView) findViewById(R.id.errorText);
+            searchBar = findViewById(R.id.searchBar);
+            listView = findViewById(R.id.listView);
+            errorText = findViewById(R.id.errorText);
 
-            categorySpinner = (MultiSpinner) findViewById(R.id.categorySpinner);
-            alphabetSort = (Button) findViewById(R.id.alphabetSort);
-            priceSort = (Button) findViewById(R.id.priceSort);
-            distanceSort = (Button) findViewById(R.id.distanceSort);
+            categorySpinner = findViewById(R.id.categorySpinner);
+            alphabetSort = findViewById(R.id.alphabetSort);
+            priceSort = findViewById(R.id.priceSort);
+            distanceSort = findViewById(R.id.distanceSort);
         }
     }
 

@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false);
 
-        topPicksList_id = (RecyclerView) findViewById(R.id.top_picks_view);
+        topPicksList_id = findViewById(R.id.top_picks_view);
         topPicksList_id.setLayoutManager(layoutManager);
         topPicksList_id.setAdapter(topPicksAdaptor);
 
@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity {
 
         CategoryAdapter categoryAdapter = new CategoryAdapter(
                 this, R.layout.layout_category, list);
-        ListView list_id = (ListView) findViewById(R.id.categoriesList);
+        ListView list_id = findViewById(R.id.categoriesList);
         list_id.setAdapter(categoryAdapter);
 
         // Populate top picks (note View paremeter arbitrary)

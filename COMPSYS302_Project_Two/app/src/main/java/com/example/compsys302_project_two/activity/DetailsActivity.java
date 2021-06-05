@@ -48,19 +48,19 @@ public class DetailsActivity extends BaseActivity {
         ImagePagerAdapter imagePagerAdapter;
 
         public ViewHolder() {
-            title = (TextView) findViewById(R.id.title);
+            title = findViewById(R.id.title);
             //featureImage
-            featureText = (TextView) findViewById(R.id.featureText);
-            price = (TextView) findViewById(R.id.price);
+            featureText = findViewById(R.id.featureText);
+            price = findViewById(R.id.price);
 
-            sellerName = (TextView) findViewById(R.id.sellerName);
-            sellerDistance= (TextView) findViewById(R.id.sellerDistance);
+            sellerName = findViewById(R.id.sellerName);
+            sellerDistance= findViewById(R.id.sellerDistance);
             //sellerRating
 
-            contentText = (TextView) findViewById(R.id.contentText);
+            contentText = findViewById(R.id.contentText);
             //images
 
-            viewPager = (ViewPager) findViewById(R.id.viewPager);
+            viewPager = findViewById(R.id.viewPager);
         }
     }
 
@@ -76,7 +76,7 @@ public class DetailsActivity extends BaseActivity {
 
         // Load Item
         Intent startingIntent = getIntent();
-        Item item = (Item) startingIntent.getParcelableExtra("item");
+        Item item = startingIntent.getParcelableExtra("item");
         this.item = item;
 
         if (item.getCategoryType() != null) {
@@ -109,7 +109,7 @@ public class DetailsActivity extends BaseActivity {
         vh.price.setText(String.format(Locale.getDefault(), "$ %.1f", item.getPrice()));
 
         vh.sellerName.setText(item.getSellerName());
-        vh.sellerDistance.setText(Integer.toString(item.getSellerDistance()) + " km");
+        vh.sellerDistance.setText(item.getSellerDistance() + " km");
         //vh.sellerRating
 
         vh.contentText.setText(item.getContentText());

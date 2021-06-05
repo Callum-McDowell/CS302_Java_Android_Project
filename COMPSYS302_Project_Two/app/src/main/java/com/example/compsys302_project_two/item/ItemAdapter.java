@@ -63,25 +63,25 @@ public class ItemAdapter extends ArrayAdapter {
         Item currentItem = mItems.get(position);
 
         // Set featureImage with img from res\raw
-        ImageView featureImage = (ImageView) currentViewItem.findViewById(R.id.featureImage);
+        ImageView featureImage = currentViewItem.findViewById(R.id.featureImage);
         int i = mContext.getResources().getIdentifier(
                 currentItem.getFeatureImage(), "drawable", mContext.getPackageName());
         featureImage.setImageResource(i);
 
         // Set title
-        TextView title = (TextView) currentViewItem.findViewById(R.id.title);
+        TextView title = currentViewItem.findViewById(R.id.title);
         title.setText(currentItem.getTitle());
 
         // Set seller (name + rating)
-        TextView sellerName = (TextView) currentViewItem.findViewById(R.id.sellerName);
+        TextView sellerName = currentViewItem.findViewById(R.id.sellerName);
         sellerName.setText(currentItem.getSellerName());
 
         // Set price (to 2 dp)
-        TextView price = (TextView) currentViewItem.findViewById(R.id.price);
-        price.setText("$ " + Float.toString(currentItem.getPrice()));
+        TextView price = currentViewItem.findViewById(R.id.price);
+        price.setText("$ " + currentItem.getPrice());
 
         // Set featureText
-        TextView featureText = (TextView) currentViewItem.findViewById(R.id.featureText);
+        TextView featureText = currentViewItem.findViewById(R.id.featureText);
         String text = "[" + currentItem.getSellerDistance().toString() + " km] " + currentItem.getFeatureText();
         featureText.setText(text);
 
@@ -104,7 +104,7 @@ public class ItemAdapter extends ArrayAdapter {
         });
 
         // OnClick - Layout
-        LinearLayout rootLayout = (LinearLayout) currentViewItem.findViewById(R.id.root_layout);
+        LinearLayout rootLayout = currentViewItem.findViewById(R.id.root_layout);
         rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

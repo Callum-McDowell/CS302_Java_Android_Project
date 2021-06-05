@@ -44,7 +44,7 @@ public class GalleryActivity extends BaseActivity {
 
         // Initialise image ViewPager
         // https://www.geeksforgeeks.org/image-slider-in-android-using-viewpager/
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        ViewPager viewPager = findViewById(R.id.viewPager);
         ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(this, images, true);
         viewPager.setAdapter(imagePagerAdapter);
 

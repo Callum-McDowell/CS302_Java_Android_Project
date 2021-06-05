@@ -37,11 +37,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHolder>{
-    private int         mLayoutID;
-    private List<Item>  mData;
+    private final int         mLayoutID;
+    private final List<Item>  mData;
     private Context     mContext;
 
-    private LayoutInflater mInflater;
+    private final LayoutInflater mInflater;
 
     public TopPickAdaptor(Context context, int resource, ArrayList<Item> data) {
         this.mData = data;

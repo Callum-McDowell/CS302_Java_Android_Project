@@ -34,10 +34,10 @@ import java.util.Objects;
 
 public class ImagePagerAdapter extends PagerAdapter {
 
-    private Context         mContext;
-    private List<String>    mImages;
-    private LayoutInflater  mlayoutInflater;
-    private boolean         showWholeImage;
+    private final Context         mContext;
+    private final List<String>    mImages;
+    private final LayoutInflater  mlayoutInflater;
+    private final boolean         showWholeImage;
 
     public ImagePagerAdapter(Context context, List<String> images, boolean showWholeImage) {
         super();
@@ -49,13 +49,13 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return (int)mImages.size();
+        return mImages.size();
     }
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         // Match root layout in pager_layout.
-        return view == ((ConstraintLayout) object);
+        return view == object;
     }
 
     @NonNull
@@ -64,7 +64,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         // Inflate the 'page' (pager_layout.xml)
         View pagerView = mlayoutInflater.inflate(R.layout.layout_pager, container, false);
         // Set the image
-        ImageView imageView = (ImageView) pagerView.findViewById(R.id.pager_image);
+        ImageView imageView = pagerView.findViewById(R.id.pager_image);
         int i = mContext.getResources().getIdentifier(
                 mImages.get(position), "drawable", mContext.getPackageName());
         imageView.setImageResource(i);

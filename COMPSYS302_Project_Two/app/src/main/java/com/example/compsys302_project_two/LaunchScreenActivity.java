@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.example.compsys302_project_two.activity.MainActivity;
+
 public class LaunchScreenActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +23,7 @@ public class LaunchScreenActivity extends AppCompatActivity {
         // Then we load the content view so static elements are visible even while adaptors are loading:
         setContentView(R.layout.activity_main);
 
-        Intent mainActivity = new Intent(LaunchScreenActivity.this, MainActivity.class);
+//        Intent mainActivity = new Intent(this, MainActivity.class);
 
 //        // Check if we're running on Android 5.0 or higher
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -42,7 +44,7 @@ public class LaunchScreenActivity extends AppCompatActivity {
 //            startActivity(mainActivity);
 //        }
 
-        startActivity(mainActivity);
+//        startActivity(mainActivity);
 
 
     }

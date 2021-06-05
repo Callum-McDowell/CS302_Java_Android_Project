@@ -16,11 +16,11 @@ import com.example.compsys302_project_two.category.CategoryType;
 
 public interface ICategory {
 
-    public CategoryType getCategoryType();
+    CategoryType getCategoryType();
 
-    public String getTitle();
+    String getTitle();
 
-    public String getFeatureImage();
+    String getFeatureImage();
 
-    public String getFeatureText();
+    String getFeatureText();
 }

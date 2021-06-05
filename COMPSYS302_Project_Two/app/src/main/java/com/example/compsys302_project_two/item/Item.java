@@ -77,7 +77,6 @@ public class Item implements Parcelable, IItem {
             this.sellerDistance = seller.getDistance();
             this.sellerRating = seller.getRating();
         } catch (Exception e) {
-            ;
         }
     }
 

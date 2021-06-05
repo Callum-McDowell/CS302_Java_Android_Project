@@ -24,18 +24,18 @@ import java.util.List;
 
 public interface IItem {
 
-    public CategoryType getCategoryType();
+    CategoryType getCategoryType();
 
-    public String   getTitle();
-    public String   getFeatureImage();
-    public String   getFeatureText();
-    public float    getPrice();
+    String   getTitle();
+    String   getFeatureImage();
+    String   getFeatureText();
+    float    getPrice();
 
-    public Seller getSeller();
-    public String   getSellerName();
-    public Integer  getSellerDistance();
-    public Integer  getSellerRating();
+    Seller getSeller();
+    String   getSellerName();
+    Integer  getSellerDistance();
+    Integer  getSellerRating();
 
-    public String   getContentText();
-    public List<String> getImages();
+    String   getContentText();
+    List<String> getImages();
 }

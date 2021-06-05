@@ -61,17 +61,17 @@ public class CategoryAdapter extends ArrayAdapter {
         Category currentCategory = mCategories.get(position);
 
         // Set featureImage with img from res\raw & res/drawable
-        ImageView featureImage = (ImageView) currentViewCategory.findViewById(R.id.featureImage);
+        ImageView featureImage = currentViewCategory.findViewById(R.id.featureImage);
         int i = mContext.getResources().getIdentifier(
                 currentCategory.getFeatureImage(), "drawable", mContext.getPackageName());
         featureImage.setImageResource(i);
 
         // Set title
-        TextView title = (TextView) currentViewCategory.findViewById(R.id.title);
+        TextView title = currentViewCategory.findViewById(R.id.title);
         title.setText(currentCategory.getTitle());
 
         // OnClick - Layout
-        CardView rootLayout = (CardView) currentViewCategory.findViewById(R.id.root_layout);
+        CardView rootLayout = currentViewCategory.findViewById(R.id.root_layout);
         rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

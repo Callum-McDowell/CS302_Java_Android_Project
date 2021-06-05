@@ -75,10 +75,7 @@ public class Search {
         if (!CategoryType.isPresentIn(item.getCategoryType(), types)) {
             return false;
         }
-        if (!(Search.matchesSearchString(item, searchString))) {
-            return false;
-        }
-        return true;
+        return Search.matchesSearchString(item, searchString);
     }
 
     // Return true if substring is present in item title or featureText
@@ -94,9 +91,6 @@ public class Search {
         if (item.getFeatureText().toLowerCase().contains(searchString)) {
             return true;
         }
-        if (item.getSellerName().toLowerCase().contains(searchString)) {
-            return true;
-        }
-        return false;
+        return item.getSellerName().toLowerCase().contains(searchString);
     }
 }

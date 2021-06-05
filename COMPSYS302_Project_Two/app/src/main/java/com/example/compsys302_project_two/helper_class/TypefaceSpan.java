@@ -37,7 +37,7 @@ import com.example.compsys302_project_two.R;
  */
 public class TypefaceSpan extends MetricAffectingSpan {
     /** An <code>LruCache</code> for previously loaded typefaces. */
-    private static LruCache<String, Typeface> sTypefaceCache =
+    private static final LruCache<String, Typeface> sTypefaceCache =
             new LruCache<String, Typeface>(12);
 
     private Typeface mTypeface;

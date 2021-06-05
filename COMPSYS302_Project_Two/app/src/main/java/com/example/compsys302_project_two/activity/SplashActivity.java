@@ -47,7 +47,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
 //        splashLayout = (ViewGroup) findViewById(R.id.splash_layout);
-        splashTitle = (TextView) findViewById(R.id.splash_title);
+        splashTitle = findViewById(R.id.splash_title);
 //        background = (View) findViewById(R.id.splash_background);
 //        featureText = (View) findViewById(R.id.splash_feature_text);
         setSplashTitle("Garden Hub");

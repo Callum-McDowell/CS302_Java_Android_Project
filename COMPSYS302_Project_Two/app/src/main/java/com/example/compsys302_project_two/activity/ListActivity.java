@@ -67,11 +67,11 @@ public class ListActivity extends BaseActivity {
         // Create and attach adapter, populated from list
         ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.layout_item, list);
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         listView.setAdapter(itemsAdapter);
 
         // In case of list being empty:
-        TextView errorText = (TextView) findViewById(R.id.errorText);
+        TextView errorText = findViewById(R.id.errorText);
         if (list.size() == 0) {
             errorText.setVisibility(View.VISIBLE);
         } else {
