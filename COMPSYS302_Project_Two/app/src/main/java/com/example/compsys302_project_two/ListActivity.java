@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,7 @@ public class ListActivity extends BaseActivity {
         }
 
         // Create and attach adapter, populated from list
-        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
+        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.layout_item, list);
 
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(itemsAdapter);

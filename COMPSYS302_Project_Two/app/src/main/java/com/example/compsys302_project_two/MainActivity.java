@@ -1,31 +1,16 @@
 package com.example.compsys302_project_two;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
-import android.app.Notification;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.transition.Fade;
-import android.transition.Slide;
-import android.transition.Transition;
-import android.view.Window;
-import android.provider.ContactsContract;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends BaseActivity {
 
@@ -46,7 +31,7 @@ public class MainActivity extends BaseActivity {
         topPicksList = new ArrayList<Item>();
 
         topPicksAdaptor = new TopPickAdaptor(
-                this, R.layout.top_pick_layout, topPicksList);
+                this, R.layout.layout_top_pick, topPicksList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false);
 
@@ -58,7 +43,7 @@ public class MainActivity extends BaseActivity {
         List<Category> list = DataProvider.getCategories();
 
         CategoryAdapter categoryAdapter = new CategoryAdapter(
-                this, R.layout.category_layout, list);
+                this, R.layout.layout_category, list);
         ListView list_id = (ListView) findViewById(R.id.categoriesList);
         list_id.setAdapter(categoryAdapter);
 
@@ -121,13 +106,6 @@ public class MainActivity extends BaseActivity {
         ArrayList<Item> data = new ArrayList<Item>(topPicksList);
         // NOTE: Must create duplicate list instance otherwise activity garbage collections interferes
         topPicksAdaptor.updateData(data);
-    }
-
-    // Placeholder method for debugging details activity (access through actionbar icon)
-    public boolean startDetailsActivity (MenuItem item) {
-        Intent intent = new Intent(this, DetailsActivity.class);
-        startActivity(intent);
-        return true;
     }
 
     // Protection override to not return to (albeit finished) splash.

@@ -22,22 +22,14 @@
 
 package com.example.compsys302_project_two;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.SearchableInfo;
 import android.content.Intent;
-import android.media.MediaParser;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Spinner;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,7 +104,7 @@ public class SearchActivity extends BaseActivity {
 
         // Create and attach adapter, populated from list
         // NOTE: Initial layout will be all items, in DataProvider FIFO order
-        itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
+        itemsAdapter = new ItemAdapter(this,R.layout.layout_item, list);
         vh.listView.setAdapter(itemsAdapter);
 
         filterAuto();

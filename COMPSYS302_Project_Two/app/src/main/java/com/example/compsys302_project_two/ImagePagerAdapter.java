@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -48,7 +47,7 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         // Inflate the 'page' (pager_layout.xml)
-        View pagerView = mlayoutInflater.inflate(R.layout.pager_layout, container, false);
+        View pagerView = mlayoutInflater.inflate(R.layout.layout_pager, container, false);
         // Set the image
         ImageView imageView = (ImageView) pagerView.findViewById(R.id.pager_image);
         int i = mContext.getResources().getIdentifier(
