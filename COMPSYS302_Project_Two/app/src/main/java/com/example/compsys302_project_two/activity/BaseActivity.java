@@ -15,13 +15,19 @@
 
 package com.example.compsys302_project_two.activity;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.transition.Fade;
+import android.transition.Slide;
 import android.transition.Transition;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.LinearInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -75,7 +81,18 @@ public class BaseActivity extends AppCompatActivity {
                 CategoryType type = ((ListActivity) this).getIntentType();
                 intent.putExtra("type", type);
             }
-            startActivity(intent);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Slide slide = new Slide();
+                slide.setSlideEdge(Gravity.RIGHT);
+                slide.excludeTarget(android.R.id.statusBarBackground, true);
+                slide.excludeTarget(android.R.id.navigationBarBackground, true);
+                slide.setDuration(1000);
+                getWindow().setExitTransition(slide);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            } else {
+                startActivity(intent);
+            }
             return true;
         }
         return false;
@@ -94,12 +111,23 @@ public class BaseActivity extends AppCompatActivity {
     // Setup activity-activity transition settings
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+            getWindow().setAllowEnterTransitionOverlap(true);
+            getWindow().setAllowReturnTransitionOverlap(true);
+
             Transition transition = new Fade();
-            transition.setDuration(2000);
+            transition.setDuration(1000);
             transition.excludeTarget(android.R.id.statusBarBackground, true);
             transition.excludeTarget(android.R.id.navigationBarBackground, true);
             getWindow().setEnterTransition(transition);
-//            getWindow().setExitTransition(transition); // Does not do anything!!!
+
+            Slide slide = new Slide();
+            slide.setSlideEdge(Gravity.LEFT);
+//            slide.setInterpolator(new LinearInterpolator());
+            slide.excludeTarget(android.R.id.statusBarBackground, true);
+            slide.excludeTarget(android.R.id.navigationBarBackground, true);
+            slide.setDuration(1000);
+            getWindow().setExitTransition(slide);
         }
     }
 }

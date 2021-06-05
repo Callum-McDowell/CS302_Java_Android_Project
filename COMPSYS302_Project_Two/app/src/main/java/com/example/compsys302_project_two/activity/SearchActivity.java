@@ -24,6 +24,8 @@ package com.example.compsys302_project_two.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -83,6 +85,7 @@ public class SearchActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupTransition();
         setContentView(R.layout.activity_search);
         setActionBarTitle("Search");
 
@@ -235,6 +238,22 @@ public class SearchActivity extends BaseActivity {
             vh.errorText.setVisibility(View.VISIBLE);
         } else {
             vh.errorText.setVisibility(View.GONE);
+        }
+    }
+
+    // Setup activity-activity transition settings
+    @Override
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+            Slide slide = new Slide();
+            slide.setSlideEdge(Gravity.RIGHT);
+            slide.setDuration(1000);
+            slide.excludeTarget(android.R.id.statusBarBackground, true);
+            slide.excludeTarget(android.R.id.navigationBarBackground, true);
+            getWindow().setEnterTransition(slide);
+            slide.setSlideEdge(Gravity.LEFT);
+            getWindow().setExitTransition(slide);
         }
     }
 }

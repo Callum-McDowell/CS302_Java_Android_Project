@@ -17,8 +17,11 @@
 
 package com.example.compsys302_project_two.category;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +35,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.compsys302_project_two.activity.ListActivity;
 import com.example.compsys302_project_two.R;
+import com.example.compsys302_project_two.activity.SplashActivity;
 
 import java.util.List;
 
@@ -77,13 +81,23 @@ public class CategoryAdapter extends ArrayAdapter {
             public void onClick(View v) {
                 // When the item is clicked...
                 // Transition to ListActivity
-                Intent itemListActivity = new Intent(mContext.getApplicationContext(), ListActivity.class);
-                itemListActivity.putExtra("type", currentCategory.getCategoryType());
-
-                mContext.startActivity(itemListActivity);
+                startItemListActivity(currentCategory);
             }
         });
 
         return currentViewCategory;
+    }
+
+    public void startItemListActivity(Category currentCategory) {
+        Intent itemListActivity = new Intent(mContext.getApplicationContext(), ListActivity.class);
+        itemListActivity.putExtra("type", currentCategory.getCategoryType());
+        itemListActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mContext.startActivity(itemListActivity, ActivityOptions.makeSceneTransitionAnimation(
+                    (Activity) mContext).toBundle());
+        } else {
+            mContext.startActivity(itemListActivity);
+        }
     }
 }
