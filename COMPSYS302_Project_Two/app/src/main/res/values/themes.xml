@@ -20,8 +20,6 @@
             @transition/change_image_transform</item>
         <item name="android:windowSharedElementExitTransition">
             @transition/change_image_transform</item>
-
-
     </style>
 
     <!-- No ActionBar theme for splash -->
@@ -40,7 +38,7 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <!--Custom Divider Style-->
+    <!--Custom Divider Styles-->
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -93,6 +91,7 @@
         <item name="android:clipToPadding">false</item>
     </style>
 
+    <!--Custom Card view styles-->
     <style name="CardViewStyle" parent="CardView">
         <item name="elevation">8dp</item>
         <item name="android:padding">16dp</item>
