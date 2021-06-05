@@ -23,6 +23,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import android.view.View;
 
@@ -40,7 +41,6 @@ public class MainActivity extends BaseActivity {
 
     protected TopPickAdaptor topPicksAdaptor;
     protected RecyclerView topPicksList_id;
-    protected ArrayList<Item> topPicksList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +51,8 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         setActionBarTitle("Garden Hub");
 
-        // Initialise topPicks
-        topPicksList = new ArrayList<Item>();
-
         topPicksAdaptor = new TopPickAdaptor(
-                this, R.layout.layout_top_pick, topPicksList);
+                this, R.layout.layout_top_pick, new ArrayList<Item>());
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false);
 
@@ -71,66 +68,122 @@ public class MainActivity extends BaseActivity {
         ListView list_id = (ListView) findViewById(R.id.categoriesList);
         list_id.setAdapter(categoryAdapter);
 
-        // Populate top picks (note View paremeter arbitrary)
-        updateTopPicks(list_id);
-
-//        // ITEM ADAPTER
-//        ItemAdapter itemsAdapter = new ItemAdapter(this,R.layout.item_layout, list);
-//
-//        ListView list_id = (ListView) findViewById(R.id.category_list_view);
-//        list_id.setAdapter(itemsAdapter);
-//        // <---
+        // Populate top picks (note that View parameter is arbitrary)
+//        updateTopPicks(list_id);
     }
 
-    // Generate a list of items and populate RecyclerView with them.
-    // List is comprised of:
-    //      - All items related to the mostViewedItem (by title)
-    //      - Then padded to listLength size with the first Items from DataProvider.
-    // Note that the padding may include duplicates of related items. Definitely room for improvement!
+    public void updateTopPicks(View view) {
+        List<Item> temp = new ArrayList<Item>(findTopPicks());
+        topPicksAdaptor.updateData(temp);
+    }
 
-    // Also called on click of update item - view parameter is redundant but included to support this.
-    // WARNING: This is VERY unoptimised. Call sparingly, NOT automatically!
-    public void updateTopPicks (View view) {
-        Integer listLength = 4;
-        Item mostViewedItem = Metadata.getMostViewed();
-        topPicksList.clear();
+    public List<Item> findTopPicks () {
+        final Integer listLength = 12;
 
-        // Search for all terms in mostViewedItem title and add to topPicks list
-        if (mostViewedItem != null) {
-            String title = mostViewedItem.getTitle();
-            // https://stackoverflow.com/questions/4674850/converting-a-sentence-string-to-a-string-array-of-words-in-java
-            String[] words = title.split("\\W+");
-            List<CategoryType> types = new ArrayList<CategoryType>();
+        // Warning: this list will grow throughout each session, potentially to a very large size!
+        List<Item> mostViewed       = new ArrayList<Item>(Metadata.getMostViewedDescending());
+        List<Item> notViewed        = new ArrayList<Item>(Metadata.getUnViewed());
+        List<Item> relatedItems     = new ArrayList<Item>();
+        List<CategoryType> types    = new ArrayList<CategoryType>();    // leave empty to include all types
 
-            for (String word : words) {
-                List<Item> searched = Search.findBySearch(DataProvider.getItems(), types, word);
-                // Ignore duplicated and most viewed item
-                for (Item i : searched) {
-                    if (!topPicksList.contains(i) && i != mostViewedItem) {
-                        topPicksList.add(i);
+        // Populate the list with
+        if (mostViewed.size() != 0) {
+            outerLoop:
+            for (Item item : mostViewed) {
+                // For each item in the mostViewed list:
+                String[] words = item.getTitle().split("\\W+");
+
+                for (String word : words) {
+                    // For each word in the item's title, search for related items:
+                    relatedItems.addAll(Search.findBySearch(notViewed, types, word));
+                    notViewed.removeAll(Search.findBySearch(notViewed, types, word));
+
+                    if (relatedItems.size() >= listLength) {
+                        // If the relatedItems list is populated, stop searching for more items:
+                        break outerLoop;
                     }
                 }
             }
         }
+        // Populate the rest of the list with random un-viewed Items
+        if (relatedItems.size() < listLength) {
+            Random r = new Random(notViewed.size());
+            int exitCount = 0;
+            while (notViewed.size() > 0 && relatedItems.size() < listLength) {
+                int i = r.nextInt(notViewed.size());
+                Item newItem = notViewed.get(i);
 
-        // Then populate rest of the list with first items from DataProvider, if fewer than listLength items
-        // Warning: could create duplicates
-        if (listLength > topPicksList.size()) {
-            Integer newItems = listLength - topPicksList.size();
-            for (int i = 0; i < newItems; i++) {
-                topPicksList.add(DataProvider.getItems().get(i));
+                if (!relatedItems.contains(newItem)) {
+                    relatedItems.add(newItem);
+                    // Temporarily remove to prevent duplicates
+                    notViewed.remove(i);
+                }
+
+                if (exitCount > 40) {
+                    break;
+                }
+                exitCount++;
             }
-        } else {
-            // Remove all but first listLength elements
-            // Must be in } else {, otherwise illegal index size
-            topPicksList.subList(listLength, topPicksList.size()).clear();
         }
 
-        // Update adapter with new items
-        ArrayList<Item> data = new ArrayList<Item>(topPicksList);
-        // NOTE: Must create duplicate list instance otherwise activity garbage collections interferes
-        topPicksAdaptor.updateData(data);
+        if (relatedItems.size() > listLength) {
+            // Sanity check: limit list length to a reasonable value (listLength + 1)
+            relatedItems.subList(listLength, relatedItems.size() - 1).clear();
+        }
+        return relatedItems;
     }
+
+
+
+//    // Generate a list of items and populate RecyclerView with them.
+//    // List is comprised of:
+//    //      - All items related to the mostViewedItem (by title)
+//    //      - Then padded to listLength size with the first Items from DataProvider.
+//    // Note that the padding may include duplicates of related items. Definitely room for improvement!
+//
+//    // Also called on click of update item - view parameter is redundant but included to support this.
+//    // WARNING: This is VERY unoptimised. Call sparingly, NOT automatically!
+//    public void updateTopPicks2 (View view) {
+//        Integer listLength = 4;
+//        Item mostViewedItem = Metadata.getMostViewed();
+//        topPicksList.clear();
+//
+//        // Search for all terms in mostViewedItem title and add to topPicks list
+//        if (mostViewedItem != null) {
+//            String title = mostViewedItem.getTitle();
+//            // https://stackoverflow.com/questions/4674850/converting-a-sentence-string-to-a-string-array-of-words-in-java
+//            String[] words = title.split("\\W+");
+//            List<CategoryType> types = new ArrayList<CategoryType>();
+//
+//            for (String word : words) {
+//                List<Item> searched = Search.findBySearch(DataProvider.getItems(), types, word);
+//                // Ignore duplicated and most viewed item
+//                for (Item i : searched) {
+//                    if (!topPicksList.contains(i) && i != mostViewedItem) {
+//                        topPicksList.add(i);
+//                    }
+//                }
+//            }
+//        }
+//
+//        // Then populate rest of the list with first items from DataProvider, if fewer than listLength items
+//        // Warning: could create duplicates
+//        if (listLength > topPicksList.size()) {
+//            Integer newItems = listLength - topPicksList.size();
+//            for (int i = 0; i < newItems; i++) {
+//                topPicksList.add(DataProvider.getItems().get(i));
+//            }
+//        } else {
+//            // Remove all but first listLength elements
+//            // Must be in } else {, otherwise illegal index size
+//            topPicksList.subList(listLength, topPicksList.size()).clear();
+//        }
+//
+//        // Update adapter with new items
+//        ArrayList<Item> data = new ArrayList<Item>(topPicksList);
+//        // NOTE: Must create duplicate list instance otherwise activity garbage collections interferes
+//        topPicksAdaptor.updateData(data);
+//    }
 
     // Protection override to not return to (albeit finished) splash.
     @Override

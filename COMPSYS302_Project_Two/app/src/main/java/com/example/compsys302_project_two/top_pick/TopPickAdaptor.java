@@ -43,7 +43,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
     private LayoutInflater mInflater;
 
-    public TopPickAdaptor(Context context, int resource, ArrayList<Item> data) {
+    public TopPickAdaptor(Context context, int resource, List<Item> data) {
         this.mData = data;
         this.mLayoutID = resource;
         this.mContext = context;
@@ -96,6 +96,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
             public void onClick(View v) {
                 // When featureImage is clicked...
                 // Transition to DetailActivity
+                Metadata.incrementItemView(thisPick);
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", thisPick);
