@@ -69,16 +69,16 @@ public class MainActivity extends BaseActivity {
         list_id.setAdapter(categoryAdapter);
 
         // Populate top picks (note that View parameter is arbitrary)
-//        updateTopPicks(list_id);
+        updateTopPicks(list_id);
     }
 
     public void updateTopPicks(View view) {
-        List<Item> temp = new ArrayList<Item>(findTopPicks());
-        topPicksAdaptor.updateData(temp);
+        topPicksAdaptor.updateData(findTopPicks());
     }
-
+    // Returns a list of all items related to the most viewed items. When necessary, pads the list
+    // with random un-viewed items to reach the desired number of topPick items.
     public List<Item> findTopPicks () {
-        final Integer listLength = 12;
+        final Integer listLength = 9; // topPicks displays listLength items
 
         // Warning: this list will grow throughout each session, potentially to a very large size!
         List<Item> mostViewed       = new ArrayList<Item>(Metadata.getMostViewedDescending());
@@ -127,7 +127,7 @@ public class MainActivity extends BaseActivity {
         }
 
         if (relatedItems.size() > listLength) {
-            // Sanity check: limit list length to a reasonable value (listLength + 1)
+            // Sanity check: limit list length to a reasonable value
             relatedItems.subList(listLength, relatedItems.size() - 1).clear();
         }
         return relatedItems;

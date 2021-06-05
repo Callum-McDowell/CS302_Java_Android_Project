@@ -12,6 +12,7 @@
 
 package com.example.compsys302_project_two.helper_class;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -88,6 +89,8 @@ public class ImagePagerAdapter extends PagerAdapter {
                     galleryActivity.putStringArrayListExtra("images", images);
 
                     mContext.startActivity(galleryActivity);
+                } else {
+                    ((Activity)mContext).finish();
                 }
             }
         });
