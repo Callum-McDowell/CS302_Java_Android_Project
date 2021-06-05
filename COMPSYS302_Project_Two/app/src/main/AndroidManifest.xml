@@ -10,12 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMPSYS302_Project_Two">
-        <activity android:name=".activity.SplashActivity"
-            android:theme="@style/Theme.COMPSYS302_Project_Two.Splash"
-            >
+        <activity
+            android:name=".activity.LaunchScreenActivity"
+            android:theme="@style/Theme.COMPSYS302_Project_Two.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,9 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.DetailsActivity" />
-        <activity android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
