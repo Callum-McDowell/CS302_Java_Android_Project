@@ -10,15 +10,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMPSYS302_Project_Two">
-        <activity android:name=".SplashActivity"
-            android:theme="@style/Theme.COMPSYS302_Project_Two.Splash"
-            >
+        <activity android:name=".LaunchScreenActivity"
+            android:theme="@style/Theme.COMPSYS302_Project_Two.LaunchScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.COMPSYS302_Project_Two.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        -->
         <activity android:name=".ListActivity" />
         <activity android:name=".GalleryActivity" />
         <activity android:name=".SearchActivity">
@@ -27,8 +36,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailsActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
+
         </activity>
     </application>
 
