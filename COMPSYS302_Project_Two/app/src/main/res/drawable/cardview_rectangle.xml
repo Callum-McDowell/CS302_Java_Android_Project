@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- https://stackoverflow.com/questions/10124919/can-i-draw-rectangle-in-xml -->
+    <!-- <stroke android:width="2dp" android:color="#ff207d94" /> -->
+    <padding android:left="16dp"
+        android:top="16dp"
+        android:right="16dp"
+        android:bottom="16dp" />
+    <corners android:radius="16dp" />
+    <solid android:color="#dddddd" />
+</shape>

@@ -11,7 +11,17 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/change_image_transform</item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/change_image_transform</item>
+
+
     </style>
 
     <!-- No ActionBar theme for splash -->
@@ -21,7 +31,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
-
+    <!-- No ActionBar theme for LaunchScreen -->
     <style name="Theme.COMPSYS302_Project_Two.LaunchScreen" parent="Theme.COMPSYS302_Project_Two">
         <item name="android:windowBackground">@drawable/launch_screen_drawable</item>
         <item name="android:windowDisablePreview">true</item>
@@ -69,7 +79,7 @@
         <item name="android:fontFamily">sans-serif-black</item>
     </style>
 
-    <!--Custom icon style-->
+    <!--Custom Icon style-->
     <style name="ActionIcon" parent="@style/Widget.AppCompat.ActionButton">
         <item name="android:tint">@color/primary</item>
         <item name="android:padding">12dp</item>
