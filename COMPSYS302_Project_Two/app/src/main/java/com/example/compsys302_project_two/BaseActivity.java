@@ -67,18 +67,6 @@ public class BaseActivity extends AppCompatActivity {
         return false;
     }
 
-    // Setup activity transition settings
-    protected void setupTransition() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            Transition transition = new Fade();
-            transition.setDuration(2000);
-            transition.excludeTarget(android.R.id.statusBarBackground, true);
-            transition.excludeTarget(android.R.id.navigationBarBackground, true);
-            getWindow().setEnterTransition(transition);
-//            getWindow().setExitTransition(transition); // Does not do anything!!!
-        }
-    }
-
     protected void hideActionBar (boolean doHide) {
         getSupportActionBar().hide();
     }

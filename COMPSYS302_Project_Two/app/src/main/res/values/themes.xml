@@ -12,6 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+<!--        <item name="android:windowActivityTransitions">true</item>-->
+<!--        <item name="android:windowContentTransitions">true</item>-->
+
+<!--        <item name="android:windowBackground">@drawable/transition_background</item>-->
     </style>
 
     <!-- No ActionBar theme for splash -->
@@ -20,6 +24,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+<!--        <item name="android:windowActivityTransitions">true</item>-->
+<!--        <item name="android:windowContentTransitions">true</item>-->
     </style>
 
     <!--Custom Divider Style-->
