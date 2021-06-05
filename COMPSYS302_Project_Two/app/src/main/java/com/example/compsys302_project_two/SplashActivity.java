@@ -1,6 +1,13 @@
 /*
-    The SplashActivity is the launch activity and will transition to main after some delay.
- */
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Hao Lin
+    Date:   June 2021
+
+    Summary
+
+        SearchActivity is the launch activity which will transition to main after some delay.
+*/
 
 package com.example.compsys302_project_two;
 

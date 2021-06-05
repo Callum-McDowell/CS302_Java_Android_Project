@@ -6,7 +6,7 @@
 
     Summary
 
-        Item class is a class containing key information for a given listing.
+        Item class is a model class containing key information for a given listing.
         A new Item is instantiated for each listing. Item holds 'thumbnail'
         information on the listing, a low memory solution for when a large
         number of listings need to be shown at once with only simple

@@ -7,7 +7,7 @@
     Summary
 
         ItemAdapter is an adapter for RecyclerView for showing item listings in a
-        list/card format. The card appearance is as described in item_layout.xml.
+        list/card format. The card appearance is as described in layout_items.xml.
 */
 
 package com.example.compsys302_project_two;

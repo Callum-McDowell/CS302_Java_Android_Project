@@ -1,3 +1,20 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        CategoryAdapter is an adapter for ListView for showing categories in a
+        list/card format. The card appearance is as described in layout_category.xml.
+
+        Class properties:
+            - mLayoutID:        The id of the target view
+            - mCategories:      The list of categories to be shown
+            - mContext:         The context under which the adaptor runs
+*/
+
 package com.example.compsys302_project_two;
 
 import android.content.Context;
@@ -16,9 +33,9 @@ import androidx.cardview.widget.CardView;
 import java.util.List;
 
 public class CategoryAdapter extends ArrayAdapter {
-    int         mLayoutID;
+    int             mLayoutID;
     List<Category>  mCategories;
-    Context     mContext;
+    Context         mContext;
 
     public CategoryAdapter(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
@@ -27,6 +44,7 @@ public class CategoryAdapter extends ArrayAdapter {
         mCategories = objects;
     }
 
+    // Create and returns the views to be displayed from a list view.
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -39,7 +57,7 @@ public class CategoryAdapter extends ArrayAdapter {
 
         Category currentCategory = mCategories.get(position);
 
-        // Set featureImage with img from res\raw
+        // Set featureImage with img from res\raw & res/drawable
         ImageView featureImage = (ImageView) currentViewCategory.findViewById(R.id.featureImage);
         int i = mContext.getResources().getIdentifier(
                 currentCategory.getFeatureImage(), "drawable", mContext.getPackageName());

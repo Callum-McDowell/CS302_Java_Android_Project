@@ -1,5 +1,18 @@
-// Code taken from: https://stackoverflow.com/questions/26074784/how-to-make-a-view-with-rounded-corners
-// By Jaap van Hengstum
+/*
+
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Jaap van Hengstum
+    Date:   June 2021
+
+    Summary
+
+    A self defined view layout with a fixed corner radius. Used to create
+    divider views in MainActivity.
+
+    Code taken from: https://stackoverflow.com/questions/26074784/how-to-make-a-view-with-rounded-corners
+    By Jaap van Hengstum
+*/
 
 package com.example.compsys302_project_two;
 

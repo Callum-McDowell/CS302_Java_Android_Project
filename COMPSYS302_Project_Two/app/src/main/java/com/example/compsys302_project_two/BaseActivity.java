@@ -1,8 +1,17 @@
 /*
-    This activity defines all functions that is universal across all other activities:
-        - Action Bar Menu
-    All other activities extends off this activity.
- */
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Hao Lin, Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        This activity defines all functions that is universal across all other activities:
+            - Action Bar Menu Creation
+            - Activity Transition Setup
+
+        All other activities (except splash) extends off this activity.
+*/
 
 package com.example.compsys302_project_two;
 
@@ -17,7 +26,6 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
-
 
     // Create an action bar button
     @Override
@@ -39,6 +47,20 @@ public class BaseActivity extends AppCompatActivity {
             startMainActivity(item);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void hideActionBar (boolean doHide) {
+        getSupportActionBar().hide();
+    }
+
+    protected void setActionBarTitle (String title) {
+        // See TypefaceSpan for full content and attribution
+        // https://www.tristanwaddington.com/2013/03/styling-the-android-action-bar-with-a-custom-font/
+        SpannableString s = new SpannableString(title);
+        s.setSpan(new TypefaceSpan(this, "lehavre_roughbasic.otf"), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        getSupportActionBar().setTitle(s);
+
     }
 
     protected boolean startSearchActivity (MenuItem item) {
@@ -65,7 +87,7 @@ public class BaseActivity extends AppCompatActivity {
         return false;
     }
 
-    // Setup activity transition settings
+    // Setup activity-activity transition settings
     protected void setupTransition() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             Transition transition = new Fade();
@@ -75,19 +97,5 @@ public class BaseActivity extends AppCompatActivity {
             getWindow().setEnterTransition(transition);
 //            getWindow().setExitTransition(transition); // Does not do anything!!!
         }
-    }
-
-    protected void hideActionBar (boolean doHide) {
-        getSupportActionBar().hide();
-    }
-
-    protected void setActionBarTitle (String title) {
-        // See TypefaceSpan for full content and attribution
-        // https://www.tristanwaddington.com/2013/03/styling-the-android-action-bar-with-a-custom-font/
-        SpannableString s = new SpannableString(title);
-        s.setSpan(new TypefaceSpan(this, "lehavre_roughbasic.otf"), 0, s.length(),
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        getSupportActionBar().setTitle(s);
-
     }
 }

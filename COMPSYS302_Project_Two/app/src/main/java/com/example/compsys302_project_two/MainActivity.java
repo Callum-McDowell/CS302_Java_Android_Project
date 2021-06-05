@@ -1,3 +1,17 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Hao Lin, Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        MainActivity is the landing (MAIN) activity for the application. It is
+        opened by SplashActivity, and contains UI to navigate to other activities through:
+            - TopPicks RecyclerView through the TopPickAdaptor
+            - Category ListView through the CategoryAdaptor
+*/
+
 package com.example.compsys302_project_two;
 
 import androidx.recyclerview.widget.LinearLayoutManager;

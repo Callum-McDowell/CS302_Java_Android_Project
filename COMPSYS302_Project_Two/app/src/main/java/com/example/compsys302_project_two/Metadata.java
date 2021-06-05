@@ -1,3 +1,22 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        Metadata class is a static class containing key information for a the metadata memory of
+        the application. It is associated with the Items class.
+
+        This class tracks the viewing frequency of each item, and is called in MainActivity
+        and ItemAdaptor whenever the item is selected for viewing. This information is used to
+        populate topPick through the upDateTopPicks() method in main.
+
+        Class properties:
+            - views:        A hashmap mapping each item's view frequency.
+*/
+
 package com.example.compsys302_project_two;
 
 import java.util.ArrayList;
@@ -27,7 +46,8 @@ public class Metadata {
     // Returns the most viewed Item. Returns null if all views are equal.
     public static Item getMostViewed() {
         Item viewMaxItem = new Item();
-        // WARNING: This Item() is to prevent trying to return an un-instantiated item. Should never actually be returned.
+        // WARNING: This Item() is to prevent trying to return an un-instantiated item.
+        // This item should never actually be returned.
         Integer viewMax = 0;
         Integer viewMin = 0;
 

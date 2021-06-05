@@ -6,7 +6,7 @@
 
     Summary
 
-        Seller class is instantiated for each individual seller.
+        Seller class a model class is instantiated for each individual seller.
         It contains simple information that will not change. Each listing
         (an Item instance) must be associated with a Seller instance.
 

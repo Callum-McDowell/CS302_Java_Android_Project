@@ -12,6 +12,7 @@
         ListActivity uses the standard itemsAdapter, and is only capable of searching by
         CategoryType. This is as more detailed searches will be carried out in SearchActivity.
 */
+
 package com.example.compsys302_project_two;
 
 import android.content.Intent;

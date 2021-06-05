@@ -1,3 +1,15 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        ImagePagerAdapter is an adapter for RecyclerView for showing item feature images in a
+        slidable page viewer. The viewer appearance is as described in layout_pager.xml.
+*/
+
 package com.example.compsys302_project_two;
 
 import android.content.Context;
@@ -19,10 +31,10 @@ import java.util.Objects;
 
 public class ImagePagerAdapter extends PagerAdapter {
 
-    private Context mContext;
-    private List<String> mImages;
-    private LayoutInflater mlayoutInflater;
-    private boolean showWholeImage;
+    private Context         mContext;
+    private List<String>    mImages;
+    private LayoutInflater  mlayoutInflater;
+    private boolean         showWholeImage;
 
     public ImagePagerAdapter(Context context, List<String> images, boolean showWholeImage) {
         super();

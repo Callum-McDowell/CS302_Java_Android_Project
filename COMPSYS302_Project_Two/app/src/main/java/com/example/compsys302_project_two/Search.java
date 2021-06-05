@@ -19,6 +19,7 @@
             - sellerPrice:      Integer, ascending
             - sellerDistance:   Integer, descending
 */
+
 package com.example.compsys302_project_two;
 
 import android.app.Notification;

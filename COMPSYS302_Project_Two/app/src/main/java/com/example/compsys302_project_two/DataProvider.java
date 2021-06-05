@@ -1,3 +1,17 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        DataProvider class generates all information of:
+            - Items - generateItems()
+            - Categories - generateCategories()
+        As their appropriate model class and hold them in this class
+*/
+
 package com.example.compsys302_project_two;
 
 import java.util.ArrayList;
@@ -673,7 +687,7 @@ public class DataProvider {
         }
 
 
-//          // Expand items
+//          // Expand items for STRESS TESTING
 //        for (int i = 0; i < 10; i++)
 //        {
 //            Item item = new Item();
@@ -726,7 +740,7 @@ public class DataProvider {
             categories.add(category);
         }
 
-//        // Expand categories
+//        // Expand categories for STRESS TESTING
 //        for (int i = 0; i < 10; i++)
 //        {
 //            Category category = new Category();

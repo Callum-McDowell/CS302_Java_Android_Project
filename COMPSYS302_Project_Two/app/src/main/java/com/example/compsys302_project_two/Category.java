@@ -1,3 +1,21 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        Category class is a class containing key information for a given category.
+        A new category is instantiated for each category type.
+
+        Class properties:
+            - type:         The category type, defined by the CategoryType enumeration
+            - title:        The displayed name of the category.
+            - featureImage: The image used as the thumbnail.
+            - featureText:  A 1-2 sentence summary of the category.
+*/
+
 package com.example.compsys302_project_two;
 
 public class Category implements ICategory {

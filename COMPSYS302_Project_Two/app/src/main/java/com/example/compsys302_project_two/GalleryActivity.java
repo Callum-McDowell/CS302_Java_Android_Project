@@ -1,3 +1,16 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        Gallery activity is responsible for displaying a number of features images of items in
+        exclusive view. It is opened by DetailsActivity, items which provides the images are fed
+        and selected through a Viewpager adapter and ViewPager.
+*/
+
 package com.example.compsys302_project_two;
 
 import android.content.Intent;

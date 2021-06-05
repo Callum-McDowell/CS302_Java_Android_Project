@@ -1,3 +1,16 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        DetailsActivity is responsible for displaying the detailed information of items. It is
+        opened by any OnClick event of an item listing.
+        It receives the items from the intent the activity passed to transition to this activity.
+*/
+
 package com.example.compsys302_project_two;
 
 import androidx.viewpager.widget.ViewPager;
@@ -12,6 +25,7 @@ import java.util.Locale;
 
 public class DetailsActivity extends BaseActivity {
 
+    // ViewHolder class to hold all views to be manipulated in this activity
     class ViewHolder {
         TextView    title;
         ImageView   featureImage;

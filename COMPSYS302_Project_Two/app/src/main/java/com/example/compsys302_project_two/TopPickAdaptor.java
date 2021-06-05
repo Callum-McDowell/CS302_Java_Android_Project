@@ -1,3 +1,20 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        TopPickAdapter is an adapter for RecyclerView for showing items in a
+        horizontal list format. The card appearance is as described in layout_top_pick.xml.
+
+        Class properties:
+            - mLayoutID:        The id of the target view
+            - mData:            The list of categories to be shown
+            - mContext:         The context under which the adaptor runs
+*/
+
 package com.example.compsys302_project_two;
 
 import android.content.Context;
@@ -18,9 +35,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHolder>{
-    private int mLayoutID;
-    private List<Item> mData;
-    private Context mContext;
+    private int         mLayoutID;
+    private List<Item>  mData;
+    private Context     mContext;
 
     private LayoutInflater mInflater;
 

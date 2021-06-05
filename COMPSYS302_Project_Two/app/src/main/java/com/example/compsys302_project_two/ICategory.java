@@ -1,3 +1,15 @@
+/*
+    COMPSYS302 Project 2 (Java/Android)
+
+    Author: Callum McDowell
+    Date:   May 2021
+
+    Summary
+
+        ICategory is an interface for receiving data from an Category
+        class instance.
+*/
+
 package com.example.compsys302_project_two;
 
 public interface ICategory {

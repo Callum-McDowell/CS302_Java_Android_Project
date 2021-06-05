@@ -16,7 +16,6 @@ import java.util.List;
 public enum CategoryType {
     FRUIT, VEGETABLES, HERBS;
 
-
     // Return true if the enum value 'check' is in the list 'types'.
     // Returns true for all if list 'types' is empty.
     public static boolean isPresentIn(CategoryType check, List<CategoryType> types) {
@@ -30,6 +29,7 @@ public enum CategoryType {
         return false;
     }
 
+    // Helper method to convert a CategoryType attribute into a string for display
     public static String toStringHeading(CategoryType in) {
         String out = in.toString();
         out = out.substring(0,1).toUpperCase() + out.substring(1).toLowerCase();
