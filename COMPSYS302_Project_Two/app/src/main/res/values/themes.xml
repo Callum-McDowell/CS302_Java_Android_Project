@@ -11,7 +11,6 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
     </style>
 
     <!-- No ActionBar theme for splash -->
@@ -22,7 +21,7 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <!--Custom Divider Style-->
+    <!--Custom Divider Styles-->
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -75,6 +74,7 @@
         <item name="android:clipToPadding">false</item>
     </style>
 
+    <!--Custom Card view styles-->
     <style name="CardViewStyle" parent="CardView">
         <item name="elevation">8dp</item>
         <item name="android:padding">16dp</item>

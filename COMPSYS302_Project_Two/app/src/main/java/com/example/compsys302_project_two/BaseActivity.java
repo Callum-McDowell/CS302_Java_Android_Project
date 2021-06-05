@@ -8,13 +8,11 @@ package com.example.compsys302_project_two;
 
 import android.content.Intent;
 import android.transition.Fade;
-import android.transition.Slide;
 import android.transition.Transition;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,7 +24,7 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // R.menu.* is a reference to a menu.xml file in the res/menu directory.
         // This is for action bar actions
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
