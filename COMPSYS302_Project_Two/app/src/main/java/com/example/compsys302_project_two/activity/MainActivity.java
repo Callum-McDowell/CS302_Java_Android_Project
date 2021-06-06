@@ -55,9 +55,6 @@ public class MainActivity extends BaseActivity {
 
         // Setup
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setupTransition();
-        }
         setContentView(R.layout.activity_main);
         setActionBarTitle("Garden Hub");
         setupTouchControls();
