@@ -589,14 +589,14 @@ public class DataProvider {
             type = CategoryType.HERBS;
             title = "Oregano";
             featureImage= "img_greenhouserustic";
-            featureText = "";
+            featureText = "Beware of Oregano Del Gardo!";
             price = (float)1.2;
 
 //            sellerName = "";
 //            sellerDistance = 4;
 //            sellerRating = 4;
 
-            contentText = "";
+            contentText = "It comes from above!";
             images = new ArrayList<String>();
             images.add(featureImage);
             images.add("img_greenhousecosy");
@@ -617,7 +617,7 @@ public class DataProvider {
 //            sellerDistance = 4;
 //            sellerRating = 4;
 
-            contentText = "";
+            contentText = "Be careful, it's sharp. Very sharp.";
             images = new ArrayList<String>();
             images.add(featureImage);
             images.add("img_greenhouserural");
@@ -631,14 +631,16 @@ public class DataProvider {
             type = CategoryType.HERBS;
             title = "Sage";
             featureImage= "img_greenhouserural";
-            featureText = "";
+            featureText = "The Great Sage, Heaven's Equal";
             price = (float)0.8;
 
 //            sellerName = "";
 //            sellerDistance = 4;
 //            sellerRating = 4;
 
-            contentText = "";
+            contentText = "Great Sage is a Conceptual Intelligence that has a heartless and " +
+                    "emotionless personality and is solely driven by purely logical computations... " +
+                    "\n I mean... Good stuff, good for flatulence and gastritis!";
             images = new ArrayList<String>();
             images.add(featureImage);
             images.add("img_herbpots");
@@ -652,14 +654,14 @@ public class DataProvider {
             type = CategoryType.HERBS;
             title = "All sorts of herbs";
             featureImage= "img_lettucegreenhouse";
-            featureText = "";
+            featureText = "Your number one stop for anti-zombie supplies!";
             price = (float)0.5;
 
 //            sellerName = "";
 //            sellerDistance = 4;
 //            sellerRating = 4;
 
-            contentText = "";
+            contentText = "Quickly, before the next Plant vs Zombies war!";
             images = new ArrayList<String>();
             images.add(featureImage);
             images.add("img_parsley");
@@ -680,7 +682,8 @@ public class DataProvider {
 //            sellerDistance = 4;
 //            sellerRating = 4;
 
-            contentText = "";
+            contentText = "You're just in thyme! Get some before you run out of thyme!" +
+                    "I shall bide my thyme before your arrival. Or is my thyme relative to yours?";
             images = new ArrayList<String>();
             images.add(featureImage);
             images.add("img_greenhouserural");

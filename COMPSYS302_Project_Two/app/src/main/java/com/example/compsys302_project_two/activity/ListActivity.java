@@ -82,4 +82,10 @@ public class ListActivity extends BaseActivity {
     public CategoryType getIntentType() {
         return type;
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+    }
 }
