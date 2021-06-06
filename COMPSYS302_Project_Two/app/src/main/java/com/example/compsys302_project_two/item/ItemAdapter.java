@@ -12,6 +12,7 @@
 
 package com.example.compsys302_project_two.item;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -24,8 +25,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
 
 import com.example.compsys302_project_two.activity.DetailsActivity;
+import com.example.compsys302_project_two.activity.ListActivity;
 import com.example.compsys302_project_two.top_pick.Metadata;
 import com.example.compsys302_project_two.R;
 
@@ -98,7 +101,12 @@ public class ItemAdapter extends ArrayAdapter {
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", currentItem);
-                mContext.startActivity(detailsActivity);
+
+                // Shared element animation commands
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        (Activity)mContext, (View)featureImage, "transitionImage");
+
+                mContext.startActivity(detailsActivity, options.toBundle());
                 // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
             }
         });

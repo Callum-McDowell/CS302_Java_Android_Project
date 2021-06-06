@@ -25,6 +25,7 @@
             <!-- Limit size here to set default layout width. -->
             <ImageView
                 android:id="@+id/featureImage"
+                android:transitionName="transitionImage"
 
                 android:layout_width="0dp"
                 android:layout_height="96dp"
