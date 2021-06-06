@@ -31,11 +31,14 @@ import com.example.compsys302_project_two.category.CategoryType;
 
 public class BaseActivity extends AppCompatActivity {
 
+    protected Menu mMenu;
+
     // Create an action bar button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // R.menu.* is a reference to a menu.xml file in the res/menu directory.
         // This is for action bar actions
+        mMenu = menu;
         getMenuInflater().inflate(R.menu.menu_action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -66,8 +69,12 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(s);
 
     }
-
+    // Wrapper for button
     protected boolean startSearchActivity (MenuItem item) {
+        return startSearchActivityLogic();
+    }
+
+    protected boolean startSearchActivityLogic() {
         if (!(this instanceof SearchActivity)) {
             Intent intent = new Intent(getBaseContext(), SearchActivity.class);
             if (this instanceof ListActivity) {

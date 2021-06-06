@@ -18,6 +18,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -27,8 +29,10 @@ import java.util.List;
 import java.util.Random;
 
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.compsys302_project_two.DataProvider;
+import com.example.compsys302_project_two.helper_class.OnSwipeTouchListener;
 import com.example.compsys302_project_two.top_pick.Metadata;
 import com.example.compsys302_project_two.R;
 import com.example.compsys302_project_two.top_pick.TopPickAdaptor;
@@ -49,13 +53,16 @@ public class MainActivity extends BaseActivity {
         // This clears the launch screen background
         setTheme(R.style.Theme_COMPSYS302_Project_Two);
 
+        // Setup
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setupTransition();
         }
         setContentView(R.layout.activity_main);
         setActionBarTitle("Garden Hub");
+        setupTouchControls();
 
+        // Populate topPicks
         topPicksAdaptor = new TopPickAdaptor(
                 this, R.layout.layout_top_pick, new ArrayList<Item>());
         LinearLayoutManager layoutManager = new LinearLayoutManager(
@@ -76,6 +83,17 @@ public class MainActivity extends BaseActivity {
         // Populate top picks (note that View parameter is arbitrary)
         updateTopPicks(list_id);
     }
+
+    protected void setupTouchControls() {
+        ConstraintLayout rootLayout = (ConstraintLayout) findViewById(R.id.root_layout);
+        rootLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            public void onSwipeRight() {
+                // Search
+                startSearchActivityLogic();
+            }
+        });
+    }
+
 
     public void updateTopPicks(View view) {
         topPicksAdaptor.updateData(findTopPicks());

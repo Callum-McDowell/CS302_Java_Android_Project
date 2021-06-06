@@ -19,11 +19,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.compsys302_project_two.helper_class.ImagePagerAdapter;
 import com.example.compsys302_project_two.R;
 import com.example.compsys302_project_two.category.CategoryType;
+import com.example.compsys302_project_two.helper_class.OnSwipeTouchListener;
 import com.example.compsys302_project_two.item.Item;
 
 import java.util.Locale;
@@ -47,6 +50,8 @@ public class DetailsActivity extends BaseActivity {
         ViewPager   viewPager;
         ImagePagerAdapter imagePagerAdapter;
 
+        LinearLayout linearLayout;
+
         public ViewHolder() {
             title = (TextView) findViewById(R.id.title);
             //featureImage
@@ -61,6 +66,8 @@ public class DetailsActivity extends BaseActivity {
             //images
 
             viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+            linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         }
     }
 
@@ -73,6 +80,7 @@ public class DetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_details);
 
         vh = new ViewHolder();
+        setupTouchControls();
 
         // Load Item
         Intent startingIntent = getIntent();
@@ -114,5 +122,16 @@ public class DetailsActivity extends BaseActivity {
 
         vh.contentText.setText(item.getContentText());
         //vh.images
+    }
+
+    protected void setupTouchControls() {
+        vh.linearLayout.setOnTouchListener(new OnSwipeTouchListener(DetailsActivity.this) {
+            public void onSwipeLeft() {
+                startSearchActivityLogic();
+            }
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 }
