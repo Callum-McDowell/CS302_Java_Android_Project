@@ -75,13 +75,6 @@ public class ImagePagerAdapter extends PagerAdapter {
 
         if (showWholeImage) {
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            // Assign the first element the transitionImage name to be used in shared element transitions
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                if (position == 0) {
-                    imageView.setTransitionName("transitionImage");
-                }
-                // If this is not done, the shared element transition is confused which page/image to use
-            }
         } else {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
@@ -110,7 +103,12 @@ public class ImagePagerAdapter extends PagerAdapter {
                     }
                 } else {
                     // No exit animation
-                    ((Activity)mContext).finish();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        // Set current view to the one to be used in shared element transition
+                        v.setTransitionName("transitionImage");
+                    }
+                    ((Activity)mContext).onBackPressed();
+                    // finish() breaks exiting transition, use onBackPressed instead
                 }
             }
         });
