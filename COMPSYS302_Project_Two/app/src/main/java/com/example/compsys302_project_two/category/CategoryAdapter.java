@@ -17,6 +17,7 @@
 
 package com.example.compsys302_project_two.category;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -81,6 +82,7 @@ public class CategoryAdapter extends ArrayAdapter {
                 itemListActivity.putExtra("type", currentCategory.getCategoryType());
 
                 mContext.startActivity(itemListActivity);
+                ((Activity)mContext).overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
 
