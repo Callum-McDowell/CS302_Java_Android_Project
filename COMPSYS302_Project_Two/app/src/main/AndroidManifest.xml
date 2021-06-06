@@ -10,15 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMPSYS302_Project_Two">
-        <activity android:name=".activity.SplashActivity"
-            android:theme="@style/Theme.COMPSYS302_Project_Two.Splash"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".activity.ListActivity" />
         <activity android:name=".activity.GalleryActivity" />
         <activity android:name=".activity.SearchActivity">
@@ -28,7 +19,13 @@
         </activity>
         <activity android:name=".activity.DetailsActivity" />
         <activity android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.COMPSYS302_Project_Two.LaunchScreen">
+            <!-- Using background as launchscreen (from theme) so that it is only shown on cold starts! -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -6,14 +6,15 @@
 
     Summary
 
-        MainActivity is the landing (MAIN) activity for the application. It is
-        opened by SplashActivity, and contains UI to navigate to other activities through:
+        MainActivity is the landing (MAIN) activity for the application. It contains the
+        UI to navigate to other activities through:
             - TopPicks RecyclerView through the TopPickAdaptor
             - Category ListView through the CategoryAdaptor
 */
 
 package com.example.compsys302_project_two.activity;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +45,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Set theme to default once app has begun loading MainActivity
+        // This clears the launch screen background
+        setTheme(R.style.Theme_COMPSYS302_Project_Two);
+
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setupTransition();

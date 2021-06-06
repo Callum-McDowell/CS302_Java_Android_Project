@@ -11,14 +11,12 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="background">@color/secondary_light</item>
     </style>
 
-    <!-- No ActionBar theme for splash -->
-    <style name="Theme.COMPSYS302_Project_Two.Splash" parent="Theme.COMPSYS302_Project_Two">
+    <style name="Theme.COMPSYS302_Project_Two.LaunchScreen" parent="Theme.COMPSYS302_Project_Two">
         <item name="android:windowDisablePreview">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/launch_screen_drawable</item>
     </style>
 
     <!--Custom Divider Styles-->
