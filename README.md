@@ -12,6 +12,9 @@ It should:
 - A listing can be viewed in further detail, with a multi-image viewer (e.g. PageViewer).
     - Additionally, sleection of the seller's name in details will display all of that seller's listings.
 
+## NOTE:
+Our class diagram and system architecture has changed significantly from the design documents. As explained in the demo, this was due to changing requirements as we added new functionality (e.g. better searching, being able to view seller listings), greater knowledge of the Android environment leading to different design decisions (e.g. adding a pager adapter, splitting Search and Metadata into static classes), and simplification of existing modules (i.e. simplifying DataProvider to one class).
+
 ## Instructions
 Unzip and run the "COMPSYS302_Project_Two" folder as a Android Studio project.
     - Build an install in a Android Virtual Device or on a Android operating system
