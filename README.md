@@ -17,13 +17,13 @@ Unzip and run the "COMPSYS302_Project_Two" folder as a Android Studio project.
     - Build an install in a Android Virtual Device or on a Android operating system
 
 ## Requirements
-Android Studio 4.1.3
-API min: 16
+* Android Studio 4.1.3
+* API min: 16
 
 ### Dependicies
-"com.google.android.material:material:1.2.0"
-"androidx.cardview:cardview:1.0.0"
-"androidx.recyclerview:recyclerview:1.2.0"
+* "com.google.android.material:material:1.2.0"
+* "androidx.cardview:cardview:1.0.0"
+* "androidx.recyclerview:recyclerview:1.2.0"
 
 ## Versioning
 [Semantic Versioning](https://semver.org/)
