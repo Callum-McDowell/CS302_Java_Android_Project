@@ -31,7 +31,6 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.example.compsys302_project_two.activity.BaseActivity;
 import com.example.compsys302_project_two.DataProvider;
 import com.example.compsys302_project_two.helper_class.MultiSpinner;
 import com.example.compsys302_project_two.R;
@@ -236,5 +235,11 @@ public class SearchActivity extends BaseActivity {
         } else {
             vh.errorText.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        this.overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
 }

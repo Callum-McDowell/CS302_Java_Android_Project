@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity {
     protected void setupTouchControls() {
         ConstraintLayout rootLayout = (ConstraintLayout) findViewById(R.id.root_layout);
         rootLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-            public void onSwipeRight() {
+            public void onSwipeLeft() {
                 // Search
                 startSearchActivityLogic();
             }

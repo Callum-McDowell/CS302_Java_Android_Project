@@ -15,6 +15,8 @@ package com.example.compsys302_project_two.activity;
 
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -73,9 +75,11 @@ public class DetailsActivity extends BaseActivity {
 
     ViewHolder vh;
     Item item;
+    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
@@ -105,6 +109,7 @@ public class DetailsActivity extends BaseActivity {
                 Intent itemListActivity = new Intent(getBaseContext(), ListActivity.class);
                 itemListActivity.putExtra("sellerName", item.getSellerName());
                 startActivity(itemListActivity);
+                ((Activity)mContext).overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
     }

@@ -83,7 +83,7 @@ public class BaseActivity extends AppCompatActivity {
                 intent.putExtra("type", type);
             }
             startActivity(intent);
-            this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+            this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
         }
         return false;
