@@ -91,7 +91,7 @@ public class ListActivity extends BaseActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
             slideEnterTransitionSetup(Gravity.END);
-            slideExitTransitionSetup(Gravity.END);
+            fadeExitTransitionSetup();
         }
     }
 }
