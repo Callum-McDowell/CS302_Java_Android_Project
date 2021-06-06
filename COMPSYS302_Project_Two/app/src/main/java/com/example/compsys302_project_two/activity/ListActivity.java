@@ -17,6 +17,7 @@ package com.example.compsys302_project_two.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class ListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupTransition();
         setContentView(R.layout.activity_item_list);
 
         // Get search parameters from intent
@@ -81,5 +83,15 @@ public class ListActivity extends BaseActivity {
 
     public CategoryType getIntentType() {
         return type;
+    }
+
+    // Setup activity-activity transition settings
+    @Override
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+            slideEnterTransitionSetup(Gravity.END);
+            slideExitTransitionSetup(Gravity.END);
+        }
     }
 }

@@ -17,8 +17,11 @@
 
 package com.example.compsys302_project_two.category;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,10 +83,19 @@ public class CategoryAdapter extends ArrayAdapter {
                 Intent itemListActivity = new Intent(mContext.getApplicationContext(), ListActivity.class);
                 itemListActivity.putExtra("type", currentCategory.getCategoryType());
 
-                mContext.startActivity(itemListActivity);
+                startItemListActivity(itemListActivity);
             }
         });
 
         return currentViewCategory;
+    }
+
+    public void startItemListActivity(Intent intent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mContext.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
+                    (Activity) mContext).toBundle());
+        } else {
+            mContext.startActivity(intent);
+        }
     }
 }

@@ -18,8 +18,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.transition.Fade;
+import android.transition.Transition;
+import android.view.Gravity;
+import android.view.Window;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -142,5 +149,23 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Window w = getWindow();
+
+            w.setAllowEnterTransitionOverlap(true);
+            w.setAllowReturnTransitionOverlap(true);
+
+            Transition transition = new Fade();
+            transition.setDuration(1000);
+            transition.excludeTarget(android.R.id.statusBarBackground, true);
+            transition.excludeTarget(android.R.id.navigationBarBackground, true);
+            w.setEnterTransition(transition);
+
+            fadeExitTransitionSetup();
+        }
     }
 }

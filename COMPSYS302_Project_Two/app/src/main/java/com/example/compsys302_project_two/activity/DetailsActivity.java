@@ -70,6 +70,7 @@ public class DetailsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupTransition();
         setContentView(R.layout.activity_details);
 
         vh = new ViewHolder();
@@ -114,5 +115,14 @@ public class DetailsActivity extends BaseActivity {
 
         vh.contentText.setText(item.getContentText());
         //vh.images
+    }
+
+    // Setup activity-activity transition settings
+    @Override
+    protected void setupTransition() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            explodeEnterTransitionSetup();
+            fadeExitTransitionSetup();
+        }
     }
 }
