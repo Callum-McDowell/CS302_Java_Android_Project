@@ -27,8 +27,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 
 import com.example.compsys302_project_two.activity.DetailsActivity;
+import com.example.compsys302_project_two.activity.ListActivity;
 import com.example.compsys302_project_two.top_pick.Metadata;
 import com.example.compsys302_project_two.R;
 
@@ -108,6 +111,19 @@ public class ItemAdapter extends ArrayAdapter {
                     mContext.startActivity(detailsActivity);
                 }
                 // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
+
+                // Shared element animation commands
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    // Apply activity transition
+                    Pair<View, String> p1 = Pair.create((View)featureImage, "transitionImage");
+                    //Pair<View, String> p2 = Pair.create((View)title, "transitionTitle");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            (Activity)mContext, p1);
+                    mContext.startActivity(detailsActivity, options.toBundle());
+                } else {
+                    // Swap without transition
+                    mContext.startActivity(detailsActivity);
+                }
             }
         });
 
