@@ -44,6 +44,7 @@
                 <TextView
                     style="@style/TextAppearance.MyApp.ItemTitle"
                     android:id="@+id/title"
+                    android:transitionName="transitionTitle"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

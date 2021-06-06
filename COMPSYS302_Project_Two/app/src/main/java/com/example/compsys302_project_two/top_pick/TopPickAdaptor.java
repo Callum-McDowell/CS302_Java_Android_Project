@@ -17,8 +17,10 @@
 
 package com.example.compsys302_project_two.top_pick;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.compsys302_project_two.R;
@@ -67,7 +71,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
         @Override
         public void onClick(View v) {
-            // To do
+            // Leave empty
         }
     }
 
@@ -100,8 +104,19 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", thisPick);
-                mContext.startActivity(detailsActivity);
                 // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
+
+                // Animation commands
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    // Apply activity transition
+                    Pair<View, String> p1 = Pair.create((View)holder.topPickImage, "transitionImage");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            (Activity) mContext, p1);
+                    mContext.startActivity(detailsActivity, options.toBundle());
+                } else {
+                    // Swap without transition
+                    mContext.startActivity(detailsActivity);
+                }
             }
         });
     }

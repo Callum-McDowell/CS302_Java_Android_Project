@@ -15,6 +15,7 @@ package com.example.compsys302_project_two.helper_class;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.compsys302_project_two.R;
@@ -72,6 +75,13 @@ public class ImagePagerAdapter extends PagerAdapter {
 
         if (showWholeImage) {
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            // Assign the first element the transitionImage name to be used in shared element transitions
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                if (position == 0) {
+                    imageView.setTransitionName("transitionImage");
+                }
+                // If this is not done, the shared element transition is confused which page/image to use
+            }
         } else {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
@@ -88,8 +98,18 @@ public class ImagePagerAdapter extends PagerAdapter {
                     ArrayList<String> images = new ArrayList<String>(mImages);
                     galleryActivity.putStringArrayListExtra("images", images);
 
-                    mContext.startActivity(galleryActivity);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        // Apply activity transition
+                        Pair<View, String> p1 = Pair.create((View)imageView, "transitionImage");
+                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                (Activity)mContext, p1);
+                        mContext.startActivity(galleryActivity, options.toBundle());
+                    } else {
+                        // Swap without transition
+                        mContext.startActivity(galleryActivity);
+                    }
                 } else {
+                    // No exit animation
                     ((Activity)mContext).finish();
                 }
             }
