@@ -15,7 +15,6 @@
     </style>
 
     <style name="Theme.COMPSYS302_Project_Two.LaunchScreen" parent="Theme.COMPSYS302_Project_Two">
-        <item name="android:windowDisablePreview">true</item>
         <item name="android:windowBackground">@drawable/launch_screen_drawable</item>
     </style>
 
