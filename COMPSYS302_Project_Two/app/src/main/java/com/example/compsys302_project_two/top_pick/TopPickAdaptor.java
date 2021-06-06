@@ -30,8 +30,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.compsys302_project_two.R;
@@ -48,7 +46,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
     private LayoutInflater mInflater;
 
-    public TopPickAdaptor(Context context, int resource, List<Item> data) {
+    public TopPickAdaptor(Context context, int resource, ArrayList<Item> data) {
         this.mData = data;
         this.mLayoutID = resource;
         this.mContext = context;
@@ -72,7 +70,7 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
 
         @Override
         public void onClick(View v) {
-            // Leave empty
+            // To do
         }
     }
 
@@ -101,7 +99,6 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
             public void onClick(View v) {
                 // When featureImage is clicked...
                 // Transition to DetailActivity
-                Metadata.incrementItemView(thisPick);
 
                 Intent detailsActivity = new Intent(mContext.getApplicationContext(), DetailsActivity.class);
                 detailsActivity.putExtra("item", thisPick);
@@ -112,18 +109,6 @@ public class TopPickAdaptor extends RecyclerView.Adapter<TopPickAdaptor.ViewHold
                     mContext.startActivity(detailsActivity);
                 }
                 // https://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
-
-                // Animation commands
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    // Apply activity transition
-                    Pair<View, String> p1 = Pair.create((View)holder.topPickImage, "transitionImage");
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                            (Activity) mContext, p1);
-                    mContext.startActivity(detailsActivity, options.toBundle());
-                } else {
-                    // Swap without transition
-                    mContext.startActivity(detailsActivity);
-                }
             }
         });
     }

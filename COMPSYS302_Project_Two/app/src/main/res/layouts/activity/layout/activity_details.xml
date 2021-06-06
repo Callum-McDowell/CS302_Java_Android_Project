@@ -23,8 +23,6 @@
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
-                android:transitionName="transitionImage"
-
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 />
@@ -36,8 +34,6 @@
 
                 <TextView
                     android:id="@+id/title"
-                    android:transitionName="transitionTitle"
-
                     style="@style/TextAppearance.AppCompat.Display1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

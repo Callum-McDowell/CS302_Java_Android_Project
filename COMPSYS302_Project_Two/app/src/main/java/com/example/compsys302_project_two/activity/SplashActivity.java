@@ -54,7 +54,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 startMainActivity();
             }
-        }, 800); // 3 sec
+        }, 3000); // 3 sec
     }
 
     // Setup activity transition settings

@@ -12,10 +12,8 @@
 
 package com.example.compsys302_project_two.helper_class;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +21,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.compsys302_project_two.R;
@@ -91,24 +87,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                     ArrayList<String> images = new ArrayList<String>(mImages);
                     galleryActivity.putStringArrayListExtra("images", images);
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        // Apply activity transition
-                        Pair<View, String> p1 = Pair.create((View)imageView, "transitionImage");
-                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                                (Activity)mContext, p1);
-                        mContext.startActivity(galleryActivity, options.toBundle());
-                    } else {
-                        // Swap without transition
-                        mContext.startActivity(galleryActivity);
-                    }
-                } else {
-                    // No exit animation
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        // Set current view to the one to be used in shared element transition
-                        v.setTransitionName("transitionImage");
-                    }
-                    ((Activity)mContext).onBackPressed();
-                    // finish() breaks exiting transition, use onBackPressed instead
+                    mContext.startActivity(galleryActivity);
                 }
             }
         });

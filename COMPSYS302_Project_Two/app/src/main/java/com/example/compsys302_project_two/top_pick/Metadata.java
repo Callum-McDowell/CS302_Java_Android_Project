@@ -19,14 +19,10 @@
 
 package com.example.compsys302_project_two.top_pick;
 
-import android.renderscript.Sampler;
-
 import com.example.compsys302_project_two.DataProvider;
 import com.example.compsys302_project_two.item.Item;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +30,6 @@ import java.util.Map;
 public class Metadata {
     protected static Map<Item, Integer> views = generateViews();
 
-    // Fill HashMap 'views' with all of DataProvider's items, and set their views to 0
     private static Map<Item, Integer> generateViews() {
         Map<Item, Integer> views = new HashMap<Item, Integer>();
         List<Item> items = new ArrayList<Item>(DataProvider.getItems());
@@ -49,38 +44,30 @@ public class Metadata {
         // Increment view for given item
         views.put(item, views.get(item) + 1);
     }
-    // Return a list of Items that have 0 views.
-    public static List<Item> getUnViewed() {
-        List<Item> unviewed = new ArrayList<Item>();
+    // Returns the most viewed Item. Returns null if all views are equal.
+    public static Item getMostViewed() {
+        Item viewMaxItem = new Item();
+        // WARNING: This Item() is to prevent trying to return an un-instantiated item.
+        // This item should never actually be returned.
+        Integer viewMax = 0;
+        Integer viewMin = 0;
+
         for (Map.Entry<Item, Integer> pair : views.entrySet()) {
-            if (pair.getValue() <= 0) {
-                unviewed.add(pair.getKey());
+            if (pair.getValue() > viewMax) {
+                viewMax = pair.getValue();
+                viewMaxItem = pair.getKey();
+                // WARNING: Could incorrectly return temp Item if the largest value is smaller than the
+                // initialised value (e.g. would fail for [-1,-3,-6] when it should return the Item
+                // for value -1. As views cannot be negative the current application is acceptable.
+            }
+            if (pair.getValue() < viewMin) {
+                viewMin = pair.getValue();
             }
         }
-        return unviewed;
-    }
-    // Return a list of the most viewed Items, descending. Excluding un-viewed Items.
-    public static List<Item> getMostViewedDescending () {
-        List<Map.Entry<Item, Integer>> list = new ArrayList<>(views.entrySet());
-        List<Item> sorted = new ArrayList<Item>();
-
-        Collections.sort(list, new Comparator<Map.Entry<Item, Integer>>() {
-            @Override
-            public int compare(Map.Entry<Item, Integer> o1, Map.Entry<Item, Integer> o2) {
-                // Return descending (highest values first)
-                return o2.getValue() - o1.getValue();
-            }
-        });
-
-        for (Map.Entry<Item, Integer> pair : list) {
-            if (pair.getValue() > 0) {
-                sorted.add(pair.getKey());
-            } else {
-                // Exit when reached un-viewed Items
-                break;
-            }
+        if (viewMax != viewMin) {
+            return viewMaxItem;
+        } else {
+            return null;
         }
-
-        return sorted;
     }
 }
